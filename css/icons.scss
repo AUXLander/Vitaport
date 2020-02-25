@@ -1,0 +1,10 @@
+@import './base.scss';
+
+.i {
+    background-repeat: no-repeat;
+
+    &.i_srch_bl {
+        background-image: url(../img/svg/search-black.svg);
+        background-size: 100%;
+    }
+}

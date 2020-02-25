@@ -1,0 +1,33 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input {
+  outline: 0;
+  border: 0;
+}
+
+span {
+  display: inline-block;
+}
+
+html {
+  font-size: 16px;
+}
+
+:root {
+  --color-text-main: #0B0A0A;
+  --color-text-blue: #00A7E1;
+}
+
+.size-a {
+  width: 26px;
+  height: 26px;
+}
+
+.size-b {
+  width: 30px;
+  height: 30px;
+}
+/*# sourceMappingURL=base.css.map */

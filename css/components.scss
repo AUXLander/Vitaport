@@ -1,0 +1,176 @@
+@import './base.scss';
+@import './icons.scss';
+
+$search-v-padding: 15px;
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    height: 90px;
+    padding: $search-v-padding 0 $search-v-padding 5px;
+    background: white;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+
+    .search__ic {
+        padding: 0 30px;
+        border-right: 1.34751px solid rgba(232, 232, 232, 0.7);
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .search__inp {
+        flex: 1;
+        height: 100%;
+    }
+    .search__btn {
+        width: 215px;
+        height: calc(100% + #{$search-v-padding * 2});
+        margin-top: -$search-v-padding;
+        margin-bottom: -$search-v-padding;
+
+        font-size: inherit;
+        font-family: inherit;
+    }
+
+    input {
+        padding: 0 50px;
+        width: 100%;
+        height: 100%;
+        font-size: inherit;
+        font-family: inherit;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 54%;
+        height: 83%;
+        left: 0;
+        right: 0;
+
+        background: #2B4149;
+        opacity: 0.16;  
+        filter: blur(45px);
+
+        border-radius: 100%;
+        z-index: -1;
+
+        pointer-events: none;
+    }
+}
+
+.btn {
+    outline: 0;
+    border: 0;
+    background: initial;
+    cursor: pointer;
+
+    transition: .2s ease;
+
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &.btn_blue {
+        color: white;
+        background: #00A7E1;
+    }
+}
+
+.bk {
+    user-select: none;
+    position: relative;
+    
+    width: 100%;
+    height: 0;
+    padding-bottom: 65%;
+    background: white;
+
+    
+    font-weight: 500;
+
+    .bk__pan {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        display: flex;
+
+
+        z-index: 1;
+
+        padding: 52px 62px 38px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bk__svg {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    .bk__cat {
+        font-size: 1.6359rem;
+        line-height: 34px;
+
+        text-transform: uppercase;
+
+        color: var(--color-text-main);
+    }
+
+    .bk__tlt {
+        font-size: 3.75rem;
+        line-height: 79px;
+
+        text-transform: uppercase;
+
+        color: var(--color-text-main);
+    }
+
+    .bk__cnt {
+        margin-top: auto;
+        font-size: 4rem;
+        line-height: 77px;
+
+        color: var(--color-text-blue);
+    }
+
+    &.bk_pills .bk__pan { 
+        background: url(../img/svg/pills.svg) no-repeat;
+        background-position: calc(100% - 30px) calc(100% - 30px);
+    }
+    &.bk_chemical .bk__pan { 
+        background: url(../img/svg/chemical.svg) no-repeat;
+        background-position: calc(100% - 30px) calc(100% - 30px);
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        bottom: -40px;
+        height: 64px;
+        left: 0;
+        right: 0;
+
+        background: #2B4149;
+        opacity: 0.34;
+        filter: blur(45px);
+
+        border-radius: 100%;
+        z-index: -1;
+
+        pointer-events: none;
+    }
+}

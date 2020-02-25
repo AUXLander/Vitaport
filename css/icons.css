@@ -1,0 +1,9 @@
+.i {
+  background-repeat: no-repeat;
+}
+
+.i.i_srch_bl {
+  background-image: url(../img/svg/search-black.svg);
+  background-size: 100%;
+}
+/*# sourceMappingURL=icons.css.map */
