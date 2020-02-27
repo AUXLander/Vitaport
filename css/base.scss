@@ -68,6 +68,9 @@ a {
     --color-background-blue:  #00A7E1;
     --color-background-white: white;
     --color-background-space: #E8E8E8;
+
+
+    --width-addr: 435px;
 }
 
 body {
@@ -258,6 +261,7 @@ footer {
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 24px;
+    position: relative;
     
     color: var(--color-text-main);
 
@@ -324,10 +328,31 @@ ul.nav {
         opacity: 1;
         transition: .2s ease;
 
+        &::after {
+            display: block;
+            position: absolute;
+            content: attr(data-name);
+            bottom: 0;
+            height: 0;
+            background: var(--color-text-main);
+            color: transparent !important;
+            pointer-events: none;
+
+            transition: .2s ease;
+        }
+
+        &.active,
         &:hover {
             opacity: .7;
+
+            &::after {
+                height: 3px;
+            }
         }
+
     }
+
+    
 }
 .footer {
     .footer__wrapper {
@@ -410,4 +435,12 @@ ul.nav {
             width: calc(50% - 38px);
         }
     }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 80px 100px;
 }

@@ -303,3 +303,79 @@ $search-v-padding: 15px;
         }
     }
 }
+
+.map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 60%;
+}
+
+.addr {
+    width: 100%;
+    height: 57px;
+    max-width: var(--width-addr);
+    position: relative;
+    background: var(--color-background-white);
+    border: 2px solid var(--color-background-gray);
+
+    user-select: none;
+    cursor: pointer;
+
+    .addr__l {
+        position: absolute;
+        display: flex;
+        top: 0;
+        width: var(--width-addr);
+        bottom: 0;
+        transition: left .2s, color .2s ease, opacity .2s ease;
+        left: 0;
+
+        &.addr__l_bgr {
+            color: var(--color-text-air);
+
+            &:hover {
+                color: var(--color-text-main);
+                opacity: .5;
+            }
+        }
+        &.addr__l_top {
+            background: var(--color-background-blue);
+            color: var(--color-text-white);
+        }
+
+        .addr-l__lbl {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .addr__bolt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        transition: left .2s;
+        
+        overflow: hidden;
+    }
+
+    &.pos-1 .addr__bolt { // as default
+        left: 0;
+        .addr__l {
+            left: 0;
+        }
+    }
+    &.pos-2 .addr__bolt {
+        left: 50%;
+
+        .addr__l {
+            left: -100%;
+        }
+    }
+}

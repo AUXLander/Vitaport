@@ -54,7 +54,6 @@ class Book {
 //var b = new Book(document.querySelector('.bk'));
 
 const SearchInitEvent = (search : HTMLElement) => {
-    
     search.addEventListener('click', (e : MouseEvent) => {
         let parent : HTMLElement = (e.currentTarget as any);
         if(parent.hasAttribute('data-search-target')) {
@@ -75,6 +74,17 @@ const SearchInitEvent = (search : HTMLElement) => {
             input.focus();
         });
     })
+}
+
+const AddrInitEvent = (addr : HTMLElement) => {
+    const turns = addr.querySelectorAll('.addr__l_bgr > *');
+    turns.forEach((turn : HTMLElement) => {
+        turn.addEventListener('click', (e : MouseEvent) => {
+            const parent = (() => {return addr})();
+            parent.classList.toggle('pos-1');
+            parent.classList.toggle('pos-2');
+        });
+    });
 }
 
 window.onload = () => {
@@ -100,4 +110,5 @@ window.onload = () => {
 
 
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
+    document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
 };
