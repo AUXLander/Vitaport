@@ -79,13 +79,14 @@ const SearchInitEvent = (search : HTMLElement) => {
 const AddrInitEvent = (addr : HTMLElement) => {
     const turns = addr.querySelectorAll('.addr__l_bgr > *');
     turns.forEach((turn : HTMLElement) => {
-        turn.addEventListener('click', (e : MouseEvent) => {
-            const parent = (() => {return addr})();
-            parent.classList.toggle('pos-1');
-            parent.classList.toggle('pos-2');
+        turn.addEventListener('click', () => {
+            addr.classList.toggle('pos-1');
+            addr.classList.toggle('pos-2');
         });
     });
 }
+
+
 
 window.onload = () => {
     var mySwiper = new Swiper ('.swiper-container', {

@@ -61,10 +61,9 @@ var SearchInitEvent = function (search) {
 var AddrInitEvent = function (addr) {
     var turns = addr.querySelectorAll('.addr__l_bgr > *');
     turns.forEach(function (turn) {
-        turn.addEventListener('click', function (e) {
-            var parent = (function () { return addr; })();
-            parent.classList.toggle('pos-1');
-            parent.classList.toggle('pos-2');
+        turn.addEventListener('click', function () {
+            addr.classList.toggle('pos-1');
+            addr.classList.toggle('pos-2');
         });
     });
 };

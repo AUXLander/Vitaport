@@ -11,4 +11,9 @@
   background-image: url(../img/svg/search-air.svg);
   background-size: 100%;
 }
+
+.i.i_arr_left {
+  background-image: url(../img/svg/arrow-left.svg);
+  background-position: center;
+}
 /*# sourceMappingURL=icons.css.map */

@@ -1,0 +1,51 @@
+tr:nth-child(2n + 6) > td {
+  background-color: #f4fbff;
+}
+
+.tbl {
+  width: 100%;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-align: center;
+  color: var(--color-text-main);
+}
+
+.tbl .tbl__hrd {
+  background-color: #f4fbff;
+}
+
+.tbl .tbl__hrd.tbl__hrd_saturat {
+  background: #e8f4fb;
+}
+
+.tbl .tbl__txt-l {
+  text-align: left !important;
+}
+
+.tbl .tbl__txt-t {
+  vertical-align: top;
+  padding-top: 26px;
+}
+
+.tbl .tbl__txt-b {
+  font-weight: 500;
+}
+
+.tbl td {
+  border: 1px solid rgba(169, 202, 221, 0.46);
+  text-align: center;
+  padding: 16px 20px 14px;
+  vertical-align: middle;
+}
+
+.tbl td span {
+  display: inline-block;
+  min-width: 60px;
+  font-size: .875em;
+  line-height: 1.4em;
+  color: var(--color-text-air);
+  vertical-align: text-bottom;
+}
+/*# sourceMappingURL=table.css.map */
