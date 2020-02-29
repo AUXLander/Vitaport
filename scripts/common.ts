@@ -76,6 +76,27 @@ const SearchInitEvent = (search : HTMLElement) => {
     })
 }
 
+var GOUpButton : HTMLButtonElement;
+const ArrowUpInit = () => {
+    if(Math.abs(window.outerHeight - document.documentElement.offsetHeight) > 300) {
+        GOUpButton = document.createElement('button');
+        GOUpButton.classList.add('goup', 'btn');
+
+        const span : HTMLSpanElement = document.createElement('span');
+        span.innerText = 'Вверх';
+
+        GOUpButton.appendChild(span);
+        GOUpButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        document.body.appendChild(button);
+    }
+}
+
 const AddrInitEvent = (addr : HTMLElement) => {
     const turns = addr.querySelectorAll('.addr__l_bgr > *');
     turns.forEach((turn : HTMLElement) => {
@@ -112,4 +133,6 @@ window.onload = () => {
 
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
     document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
+
+    ArrowUpInit()
 };

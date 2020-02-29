@@ -58,6 +58,23 @@ var SearchInitEvent = function (search) {
         });
     });
 };
+var GOUpButton;
+var ArrowUpInit = function () {
+    if (Math.abs(window.outerHeight - document.documentElement.offsetHeight) > 300) {
+        GOUpButton = document.createElement('button');
+        GOUpButton.classList.add('goup', 'btn');
+        var span = document.createElement('span');
+        span.innerText = 'Вверх';
+        GOUpButton.appendChild(span);
+        GOUpButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        document.body.appendChild(button);
+    }
+};
 var AddrInitEvent = function (addr) {
     var turns = addr.querySelectorAll('.addr__l_bgr > *');
     turns.forEach(function (turn) {
@@ -87,4 +104,5 @@ window.onload = function () {
     });
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
     document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
+    ArrowUpInit();
 };

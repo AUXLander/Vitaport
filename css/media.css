@@ -1,0 +1,25 @@
+@media (max-width: 1560px) {
+  header {
+    height: 70px;
+  }
+  footer {
+    height: 90px;
+  }
+  .scheme .scheme__name {
+    -webkit-transform: none;
+            transform: none;
+  }
+  .scheme .scheme__grh {
+    padding: 20px;
+  }
+  .scheme .scheme__grf {
+    padding: 25px 20px;
+  }
+  ul.nav > li {
+    margin: 0 20px;
+  }
+  .logo {
+    line-height: 12px;
+  }
+}
+/*# sourceMappingURL=media.css.map */
