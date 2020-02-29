@@ -1,7 +1,3 @@
-tr:nth-child(2n + 6) > td {
-  background-color: #f4fbff;
-}
-
 .tbl {
   width: 100%;
   font-style: normal;
@@ -47,5 +43,17 @@ tr:nth-child(2n + 6) > td {
   line-height: 1.4em;
   color: var(--color-text-air);
   vertical-align: text-bottom;
+}
+
+.tbl:not(.tbl_setoffset) tr:nth-child(2n + 1) > td {
+  background-color: #f4fbff;
+}
+
+.tbl.tbl_setoffset tr:nth-child(2n + 6) > td {
+  background-color: #f4fbff;
+}
+
+.tbl.tbl_textleft {
+  text-align: left;
 }
 /*# sourceMappingURL=table.css.map */

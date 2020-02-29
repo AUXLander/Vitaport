@@ -1,9 +1,6 @@
 table {
     
 }
-tr:nth-child(2n + 6) > td {
-    background-color: #f4fbff;
-}
 .tbl {
     width: 100%;
 
@@ -49,5 +46,21 @@ tr:nth-child(2n + 6) > td {
             color: var(--color-text-air);
             vertical-align: text-bottom;
         }
+    }
+
+    &:not(.tbl_setoffset) {
+        tr:nth-child(2n + 1) > td {
+            background-color: #f4fbff;
+        }
+    }
+
+    &.tbl_setoffset {
+        tr:nth-child(2n + 6) > td {
+            background-color: #f4fbff;
+        }
+    }
+
+    &.tbl_textleft {
+        text-align: left;
     }
 }

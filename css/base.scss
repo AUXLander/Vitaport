@@ -63,11 +63,44 @@ html {
 }
 a {
     color: var(--color-text-main);
+    text-decoration: none;
+    transition: opacity .2s ease;
+
     &:visited {
         color: var(--color-text-main);
     }
-}
 
+    &:hover {
+        opacity: .7;
+    }
+}
+a.link {
+    > span {
+        position: relative;
+    }
+    > span::after {
+        display: block;
+        content: '___________________________________________________________________________________________________________________________';
+        position: absolute;
+        bottom: 0;
+        height: 10px;
+        left: 0;
+        right: 100%;
+        -webkit-transition: right .2s ease;
+        transition: right .2s ease;
+        line-height: 0;
+        letter-spacing: -0.8px;
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-2px);
+        pointer-events: none;
+        overflow: hidden;
+        max-width: 100%;
+        color: inherit;
+    }
+    &:hover > span::after {
+        right: 0;
+    }
+}
 
 :root {
     --color-text-main:        #0B0A0A;
@@ -77,6 +110,7 @@ a {
     --color-text-air:         #BCBEC0;
     --color-background-gray:  #F5F5F5;
     --color-background-blue:  #00A7E1;
+    --color-background-lblue: #F4FBFF;
     --color-background-white: white;
     --color-background-space: #E8E8E8;
 
