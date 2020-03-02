@@ -93,7 +93,7 @@ const ArrowUpInit = () => {
             });
         });
 
-        document.body.appendChild(button);
+        document.body.appendChild(GOUpButton);
     }
 }
 
@@ -105,6 +105,15 @@ const AddrInitEvent = (addr : HTMLElement) => {
             addr.classList.toggle('pos-2');
         });
     });
+}
+
+const MobileMenuInitEvent = (menu : HTMLElement) => {
+    menu.addEventListener('click', (e : MouseEvent) => {
+        const menu : HTMLElement = <HTMLElement>e.currentTarget;
+        if(menu) {
+            menu.classList.toggle('active');
+        }
+    })
 }
 
 
@@ -133,6 +142,7 @@ window.onload = () => {
 
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
     document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
+    document.querySelectorAll('.brgr-menu').forEach(MobileMenuInitEvent);
 
-    ArrowUpInit()
+    //ArrowUpInit()
 };

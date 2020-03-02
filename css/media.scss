@@ -1,24 +1,498 @@
 @media (max-width: 1560px) {
+
+    :root {
+        font-size: 14px;
+    }
+
+    .main-wrapper {
+        max-width: calc(100% - 120px);
+    }
     header {
         height: 70px;
+    }
+    
+    body {
+        padding-top: 70px;
     }
     footer {
         height: 90px;
     }
-    .scheme .scheme__name {
-        transform: none;
+    .scheme {
+        font-size: 1.35rem;
+
+        .scheme__name {
+            transform: translateX(-20px);
+        }
+        .scheme__grh {
+            padding: 20px;
+        }
+        .scheme__grf {
+            padding: 25px 20px;
+        }
+        .scheme__cr {
+            margin-left: 25px;
+        }
     }
-    .scheme .scheme__grh {
-        padding: 20px;
-    }
-    .scheme .scheme__grf {
-        padding: 25px 20px;
-    }
+    
     ul.nav > li {
         margin: 0 20px;
     }
     .logo {
         line-height: 12px;
+        height: 38px;
+
+        .logo__img img { 
+            height: 100%;
+            margin-left: auto;
+        }
+        .logo__txt {
+            padding: 0 15px;
+            margin-left: 15px;
+
+            span + span {
+                margin-top: 1.3px;
+            }
+        }
+    }
+    
+
+    .bk .bk__pan{
+        padding: 40px 50px 30px;
+    }
+    .bk .bk__svg {
+        bottom: -20px;
+        width: 260px
+    }
+    .bk.bk_pills .bk__pan {
+        background-size: 30%;
+    }
+    .bk.bk_chemical .bk__pan {
+        background-size: 36%;
+    }
+    .slide .slide__cnt {
+        padding: 50px 80px 30px;
+    }
+    .slide .slide__btn {
+        height: 55px;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-custom, .swiper-pagination-fraction{
+        bottom: 28px;
     }
 
+    .skltn {
+        padding-bottom: 80px;
+    }
+    .skltn .skltn__bn{
+        margin-top: 50px;
+    }
+
+    .search {
+        height: 70px;
+    }
+
+    .txt {
+        font-size: 1.35rem;
+    }
+
+    
+}
+
+@media (max-width: 1280px) {
+    
+    :root {
+        font-size: 11.8px;
+    }
+
+    .tlt {
+        line-height: 1em;
+    }
+
+    .bk {
+        padding-bottom: 70%;
+    }
+    .bk .bk__svg {
+        bottom: -50px;
+        width: 215px;
+    }
+    .bk.bk_pills .bk__pan {
+        padding: 25px 35px 20px;
+        background-position: calc(100% - 15px) calc(100% - 15px);
+        background-size: 37%;
+    }
+    .bk.bk_chemical .bk__pan{
+        padding: 25px 35px 20px;
+        background-position: calc(100% - 15px) calc(100% - 15px);
+        background-size: 37%;
+    }
+    .bk .bk__cat {
+        line-height: 1em;
+    }
+    .bk .bk__btn{
+        font-size: 16px;
+    }
+
+
+    .skltn {
+        padding-bottom: 60px;
+
+        .skltn__bn {
+            margin-top: 35px;
+        }
+
+        .skltn__dbl {
+            margin-top: 35px;
+        }
+
+        .skltn__dbl .skltn-dbl__prt {
+            width: calc(50% - 20px);
+        }
+        
+    }
+
+    .slide .slide__cnt {
+        padding: 40px 60px 30px;
+    }
+
+    .slide .slide__p {
+        margin-top: 25px;
+    }
+
+    .txt {
+        line-height: 1.2em;
+    }
+
+    .slide .slide__btn {
+        margin-top: 25px;
+        height: 50px;
+    }
+
+    header {
+        height: 60px;
+    }
+    body {
+        padding-top: 60px;
+    }
+
+    .logo {
+        line-height: 9.93px;
+        height: 30px;
+        font-size: 10px;
+
+        .logo__txt {
+            padding: 0 10px;
+            margin-left: 10px;
+        }
+    }
+
+    .search {
+        .search__ic {
+            padding: 0 15px;
+        }
+        .search input {
+            padding: 0 20px;
+        }
+    }
+
+
+
+    .btn {
+        .btn__bow {
+            width: 43px;
+            height: 43px;
+        }
+    }
+
+    .search {
+        height: 55px;
+    }
+
+    .scheme .scheme__name {
+        transform: translateX(-10px);
+        width: 160px;
+
+        img {
+            width: 100%;
+        }
+    }
+    .scheme .scheme__grh {
+        padding: 20px 10px;
+    }
+
+    ul.nav > li {
+        margin: 0 14px;
+    }
+    .skltn {
+        padding-bottom: 60px;
+    }
+
+    .swiper {
+        padding-bottom: 46%;
+    }
+    
+    .tlt {
+        font-size: 3.15rem;
+    }
+
+    footer {
+        height: 80px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-wrapper {
+        max-width: calc(100% - 80px);
+    }
+    
+    .swiper {
+        padding-bottom: 350px;
+    }
+    
+    .search input {
+        padding: 0 20px;
+    }
+
+    .scheme .scheme__name {
+        transform: translateX(-10px) translateY(2px);
+        width: 120px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .bk {
+        padding-bottom: 260px;
+    }
+
+    .logo {
+        height: 25px;
+        line-height: 8.93px;
+        font-size: 9px;
+        
+        .logo__txt {
+            padding: 0 0 0 8px;
+            margin-left: 8px;
+        }
+    }
+    ul.nav > li {
+        margin: 0 6px;
+    }
+
+    .scheme .scheme__grh {
+        padding: 20px 8px;
+    }
+    .scheme .scheme__cr {
+        margin-bottom: 0px;
+    }
+    
+    .skltn .skltn__dbl .skltn-dbl__prt {
+        width: calc(50% - 17.5px);
+    }
+
+    .bk.bk_pills .bk__pan {
+        background-size: 32%;
+    }
+    .bk.bk_chemical .bk__pan {
+        background-size: 45%;
+    }
+    .scheme__grh_nav {
+        flex: 1;
+    }
+    .scheme__nav {
+        width: 100%;
+        max-width: 350px;
+        justify-content: space-around;
+    }
+    .search .search__btn {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .scheme__grh_nav,
+    .scheme__srch,
+    .scheme__nav {
+        display: none !important;
+    }
+
+    :root {
+        font-size: 10px;
+    }
+    
+    .brgr-menu {
+        display: flex !important;
+    }
+
+    .scheme .scheme__grh {
+        padding: 20px;
+    }
+
+    .scheme__mobmenu {
+        transform: translateX(20px);
+    }
+
+    .scheme .scheme__name {
+        transform: translateX(-20px);
+    }
+
+    .skltn .skltn__dbl {
+        flex-direction: column;
+    }
+
+    .skltn-dbl__prt {
+        width: 100%;
+    }
+
+    .bk.bk_pills .bk__pan {
+        background-size: 130px;
+    }
+    .bk.bk_chemical .bk__pan {
+        background-size: 180px;
+    }
+
+    .skltn .skltn__dbl .skltn-dbl__prt {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    .slide .slide__cnt {
+        padding: 40px 40px 30px;
+    }
+
+    .slide .slide__btn {
+        height: 40px;
+        width: 140px;
+    }
+    .search {
+        height: 48px;
+
+        .search__inp input {
+            font-weight: 300;
+
+            &::placeholder {
+                max-width: 100px;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+
+        .search__btn {
+            width: 114px;
+        }
+
+        .search__ic {
+            padding: 0 10px;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .main-wrapper {
+        max-width: calc(100% - 40px);
+    }
+
+    .skltn {
+        padding-bottom: 30px;
+    }
+
+    .skltn .skltn__dbl,
+    .skltn .skltn__bn {
+        margin-top: 20px;
+    }
+
+    .skltn .skltn__dbl .skltn-dbl__prt {
+        margin-bottom: 20px;
+    }
+
+    .swiper {
+        margin: 0 -20px;
+        width: calc(100% + 40px);
+    }
+
+    .scheme .scheme__grh {
+        padding: 17.5px 20px;
+    }
+
+    .scheme .scheme__name {
+        width: 90px;
+        transform: translateX(0px);
+    }
+    
+    .scheme .scheme__wrapper {
+        max-width: 100%;
+    }
+
+    .scheme__mobmenu {
+        transform: translateX(0px);
+    }
+
+    .logo {
+        height: 20px;
+        line-height: 6.83px;
+        font-size: 7px;
+    }
+
+    .logo .logo__txt span + span {
+        margin-top: 1.2px;
+    }
+
+    header {
+        height: 55px;
+    }
+    body {
+        padding-top: 55px;
+    }
+
+    footer.scheme {
+        height: initial;
+
+        .scheme__wrapper {
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+        .scheme__grf.scheme__grh_bottom {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 0;
+            width: 100%;
+            border-bottom: 1px solid var(--color-background-gray);
+        }
+
+        .scheme__cr {
+            font-size: 12px;
+            line-height: 20px;
+            margin-left: 0;
+            margin-top: 9px;
+        }
+    }
+
+    .btn .btn__bow {
+        width: 31px;
+        height: 31px;
+    }
+    .btn .btn__bow::after {
+        right: -6px;
+    }
+
+    .bk {
+        padding-bottom: 230px;
+    }
+    .bk .bk__svg {
+        bottom: -60px;
+        width: 210px;
+    }
+    .bk.bk_pills .bk__pan {
+        padding: 20px;
+        background-size: 120px;
+        background-position: calc(100% - 20px) calc(100% - 20px);
+    }
+    .bk.bk_chemical .bk__pan {
+        padding: 20px;
+        background-size: 140px;
+        background-position: calc(100% - 20px) calc(100% - 20px);
+    }
 }

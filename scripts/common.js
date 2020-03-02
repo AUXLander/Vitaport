@@ -72,7 +72,7 @@ var ArrowUpInit = function () {
                 behavior: 'smooth'
             });
         });
-        document.body.appendChild(button);
+        document.body.appendChild(GOUpButton);
     }
 };
 var AddrInitEvent = function (addr) {
@@ -82,6 +82,14 @@ var AddrInitEvent = function (addr) {
             addr.classList.toggle('pos-1');
             addr.classList.toggle('pos-2');
         });
+    });
+};
+var MobileMenuInitEvent = function (menu) {
+    menu.addEventListener('click', function (e) {
+        var menu = e.currentTarget;
+        if (menu) {
+            menu.classList.toggle('active');
+        }
     });
 };
 window.onload = function () {
@@ -104,5 +112,6 @@ window.onload = function () {
     });
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
     document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
-    ArrowUpInit();
+    document.querySelectorAll('.brgr-menu').forEach(MobileMenuInitEvent);
+    //ArrowUpInit()
 };

@@ -208,7 +208,7 @@ $search-v-padding: 15px;
     .bk__cnt {
         margin-top: auto;
         font-size: 4rem;
-        line-height: 77px;
+        line-height: 0.7em;
     }
 
     .bk__wr {
@@ -225,10 +225,12 @@ $search-v-padding: 15px;
     &.bk_pills .bk__pan { 
         background: url(../img/svg/pills.svg) no-repeat;
         background-position: calc(100% - 30px) calc(100% - 30px);
+        background-size: 33%;
     }
     &.bk_chemical .bk__pan { 
         background: url(../img/svg/chemical.svg) no-repeat;
         background-position: calc(100% - 30px) calc(100% - 30px);
+        background-size: 38%;
     }
     &.bk_blue .bk__cnt {
         color: var(--color-text-blue);
@@ -595,9 +597,52 @@ $search-v-padding: 15px;
 
     .artcl__tbl {
         margin-top: 15px;
+    }   
+}
+
+
+.brgr-menu {
+    display: none !important;
+    position: relative;
+    width: 25px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span { 
+        width: 25px;
+        height: 2px;
+        background: var(--color-text-main);
+
+        transform-origin: 0px 3px;
+
+        opacity: 1;
+
+        transform: rotate(0deg) translateX(0%);
+        
+        transition: .2s ease;
     }
 
-    
+    &.active {
+        span {
+            &:nth-child(1) {
+                transform: rotate(30deg) translateX(0%);
+                width: 28px;
+                transform-origin: 1px 4px;
+            }
+            &:nth-child(2) {
+                transform: rotate(0deg) translateX(-100%);
+                pointer-events: none;
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-30deg) translateX(0%);
+                width: 28px;
+                transform-origin: 1px -1px;
+            }
+        }
+    }
 }
 
 
