@@ -116,9 +116,22 @@ const MobileMenuInitEvent = (menu : HTMLElement) => {
     })
 }
 
-
+const WindowResizeEvent = () => {
+    document.querySelectorAll('.addr').forEach((addr : HTMLElement) => {
+        const rect : DOMRect = addr.getBoundingClientRect();
+        document.body.querySelector('style').innerHTML = `:root{--width-addr:${rect.width}px}`;
+    });
+}
 
 window.onload = () => {
+
+    document.body.appendChild(document.createElement('style'));
+    
+    if(window.innerWidth <= 768) {
+        window.onresize = WindowResizeEvent;
+        WindowResizeEvent();
+    }
+
     var mySwiper = new Swiper ('.swiper-container', {
         direction         : 'horizontal',
         speed             : 300,
@@ -145,4 +158,5 @@ window.onload = () => {
     document.querySelectorAll('.brgr-menu').forEach(MobileMenuInitEvent);
 
     //ArrowUpInit()
+    
 };

@@ -113,6 +113,10 @@ a.link:hover > span::after {
   --width-addr: 435px;
 }
 
+.bhidden {
+  display: none !important;
+}
+
 body {
   background: var(--color-background-gray);
   min-height: 100vh;
@@ -268,6 +272,8 @@ sup {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
   z-index: 0;
 }
 
@@ -583,7 +589,9 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
 }
 
 .map-info {
-  max-width: calc(40% - 90px);
+  max-width: 435px;
+  width: 100%;
+  min-width: calc(40% - 95px);
 }
 
 .map-info p {

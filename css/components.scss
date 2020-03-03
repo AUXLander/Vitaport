@@ -314,7 +314,7 @@ $search-v-padding: 15px;
     right: 0;
     bottom: 0;
 
-    width: 60%;
+    width: calc(100% - 435px - 80px - 105px);
 }
 
 .addr {
@@ -417,6 +417,7 @@ $search-v-padding: 15px;
 .back {
     width: 100%;
     padding: 18px 10px;
+    font-size: 18px;
 
     background: rgba(188, 190, 192, 0.21);
 
@@ -450,7 +451,7 @@ $search-v-padding: 15px;
 
     font-weight: 500;
     font-size: 1.5em;
-    line-height: 29px;
+    line-height: 1.2em;
 
     .fullfill__wr {
         width: 100%;
@@ -473,7 +474,7 @@ $search-v-padding: 15px;
 
 
 .artcl {
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 300;
     text-align: left;
     margin: 0 0 15px;
@@ -504,6 +505,17 @@ $search-v-padding: 15px;
         font-weight: 500;
         font-size: 1.875em;
         margin-bottom: 25px;
+    }
+    .artcl__scrll {
+        //overflow-x: scroll; in media 1024
+        &::-webkit-scrollbar{
+            display: none !important;
+            width: 0; 
+            height: 0;
+            opacity: 0;
+            border: 0;
+            position: relative;
+        }
     }
 
     .artcl__ds {

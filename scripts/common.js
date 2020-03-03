@@ -92,7 +92,18 @@ var MobileMenuInitEvent = function (menu) {
         }
     });
 };
+var WindowResizeEvent = function () {
+    document.querySelectorAll('.addr').forEach(function (addr) {
+        var rect = addr.getBoundingClientRect();
+        document.body.querySelector('style').innerHTML = ":root{--width-addr:" + rect.width + "px}";
+    });
+};
 window.onload = function () {
+    document.body.appendChild(document.createElement('style'));
+    if (window.innerWidth <= 768) {
+        window.onresize = WindowResizeEvent;
+        WindowResizeEvent();
+    }
     var mySwiper = new Swiper('.swiper-container', {
         direction: 'horizontal',
         speed: 300,

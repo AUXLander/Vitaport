@@ -119,6 +119,10 @@ a.link {
     --width-addr: 435px;
 }
 
+.bhidden {
+    display: none !important;
+}
+
 body {
     background: var(--color-background-gray);
     min-height: 100vh;
@@ -253,6 +257,7 @@ sup {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: left;
         z-index: 0;
     }
     .slide__cnt {
@@ -522,7 +527,9 @@ ul.nav {
     align-items: flex-start;
 }
 .map-info {
-    max-width: calc(40% - 90px);
+    max-width: 435px;
+    width: 100%;
+    min-width: calc(40% - 95px);
 
     p {
         font-size: 1.125rem;
