@@ -111,6 +111,9 @@ a.link:hover > span::after {
   --color-background-white:  white;
   --color-background-space:  #E8E8E8;
   --width-addr: 435px;
+  --height-mosaic-tab-active: 200px;
+  --height-mosaic-tab: 100px;
+  --padding-mosaic-offset: 13px;
 }
 
 .bhidden {
@@ -1022,39 +1025,111 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   color: var(--color-text-main);
 }
 
+@-webkit-keyframes KFOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes KFOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes KFOpen {
+  0% {
+    max-width: 25%;
+  }
+  40% {
+    max-width: 12.5%;
+  }
+  100% {
+    max-width: 25%;
+  }
+}
+
+@keyframes KFOpen {
+  0% {
+    max-width: 25%;
+  }
+  40% {
+    max-width: 12.5%;
+  }
+  100% {
+    max-width: 25%;
+  }
+}
+
 .mosaic {
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  max-height: 400px;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin: -var(--padding-mosaic-offset) 0 0 -var(--padding-mosaic-offset);
 }
 
 .mosaic .mosaic__tab {
   position: relative;
-  width: calc(50% - 14px);
-  margin-bottom: 14px;
-  background: var(--color-background-white);
+  margin-top: auto;
+  padding: var(--padding-mosaic-offset) 0 0 var(--padding-mosaic-offset);
+  opacity: 1;
+  width: 25%;
+  max-width: 25%;
+  height: var(--height-mosaic-tab);
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-.mosaic .mosaic__tab::after {
+.mosaic .mosaic__tab.active {
+  height: var(--height-mosaic-tab-active);
+}
+
+.mosaic .mosaic__tab.active .mosaic-tab__wr {
+  width: calc(400% - var(--padding-mosaic-offset));
+}
+
+.mosaic .mosaic__tab.active:nth-child(4n + 2) .mosaic-tab__wr {
+  margin-left: -100%;
+}
+
+.mosaic .mosaic__tab.active:nth-child(4n + 3) .mosaic-tab__wr {
+  margin-left: -200%;
+}
+
+.mosaic .mosaic__tab.active:nth-child(4n + 4) .mosaic-tab__wr {
+  margin-left: -300%;
+}
+
+.mosaic .mosaic__tab .mosaic-tab__wr {
+  overflow: hidden;
   position: absolute;
-  content: '';
-  display: block;
-  bottom: -20px;
-  height: 64px;
-  left: 0;
-  right: 0;
-  background: #2B4149;
-  opacity: 0.34;
-  -webkit-filter: blur(45px);
-          filter: blur(45px);
-  border-radius: 100%;
-  z-index: -1;
-  pointer-events: none;
+  top: var(--padding-mosaic-offset);
+  left: var(--padding-mosaic-offset);
+  height: calc(var(--height-mosaic-tab) - var(--padding-mosaic-offset));
+  width: calc(100% - var(--padding-mosaic-offset));
+  background: var(--color-background-white);
+  -webkit-transition: .4s;
+  transition: .4s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .map {

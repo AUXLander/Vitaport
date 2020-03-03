@@ -98,6 +98,12 @@ var WindowResizeEvent = function () {
         document.body.querySelector('style').innerHTML = ":root{--width-addr:" + rect.width + "px}";
     });
 };
+var MosaicTabInitEvent = function (tab, index, all) {
+    tab.addEventListener('click', function (e) {
+        var curr = e.currentTarget;
+        curr.classList.toggle('active');
+    });
+};
 window.onload = function () {
     document.body.appendChild(document.createElement('style'));
     if (window.innerWidth <= 768) {
@@ -124,5 +130,6 @@ window.onload = function () {
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
     document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
     document.querySelectorAll('.brgr-menu').forEach(MobileMenuInitEvent);
+    document.querySelectorAll('.mosaic__tab').forEach(MosaicTabInitEvent);
     //ArrowUpInit()
 };

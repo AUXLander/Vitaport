@@ -111,6 +111,9 @@ a.link:hover > span::after {
   --color-background-white:  white;
   --color-background-space:  #E8E8E8;
   --width-addr: 435px;
+  --height-mosaic-tab-active: 200px;
+  --height-mosaic-tab: 100px;
+  --padding-mosaic-offset: 13px;
 }
 
 .bhidden {

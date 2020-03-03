@@ -123,6 +123,14 @@ const WindowResizeEvent = () => {
     });
 }
 
+
+const MosaicTabInitEvent = (tab : HTMLElement, index : number, all : NodeListOf<HTMLElement>) => {
+    tab.addEventListener('click', (e : MouseEvent) => {
+        const curr : HTMLElement = (<HTMLElement>e.currentTarget);
+        curr.classList.toggle('active');
+    });
+} 
+
 window.onload = () => {
 
     document.body.appendChild(document.createElement('style'));
@@ -156,6 +164,7 @@ window.onload = () => {
     document.querySelectorAll('.search-target').forEach(SearchInitEvent);
     document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
     document.querySelectorAll('.brgr-menu').forEach(MobileMenuInitEvent);
+    document.querySelectorAll('.mosaic__tab').forEach(MosaicTabInitEvent);
 
     //ArrowUpInit()
     
