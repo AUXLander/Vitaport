@@ -284,15 +284,12 @@ $search-v-padding: 15px;
     }
 }
 
-@keyframes KFOpen {
+@keyframes MosaicOpen {
     0% {
-        max-width: 25%;
-    }
-    40% {
-        max-width: 12.5%;
+        height: var(--height-mosaic-tab);
     }
     100% {
-        max-width: 25%;
+        height: var(--height-mosaic-tab-active)
     }
 }
 
@@ -305,6 +302,7 @@ $search-v-padding: 15px;
 
 
     .mosaic__tab {
+        z-index: 1;
         position: relative;
         margin-top: auto;
         padding: var(--padding-mosaic-offset) 0 0 var(--padding-mosaic-offset);
@@ -318,21 +316,15 @@ $search-v-padding: 15px;
         //transition: height .3s, margin-left .3s, width .3s, max-width .3s, opacity .2s;
         transition: .4s;
 
-        &:not(.reopen) {
-            //animation-name: KFOpacity;
-            //animation-duration: 1s;
-        }
-
         &.active {
+            z-index: 10;
             height: var(--height-mosaic-tab-active);
 
             .mosaic-tab__wr {
+                height: calc(var(--height-mosaic-tab-active) - var(--height-mosaic-tab) - var(--padding-mosaic-offset));
                 width: calc(400% - var(--padding-mosaic-offset));
             }
 
-            &:nth-child(4n + 1) .mosaic-tab__wr {
-
-            }
             &:nth-child(4n + 2) .mosaic-tab__wr {
                 margin-left: -100%;
             }
@@ -342,13 +334,26 @@ $search-v-padding: 15px;
             &:nth-child(4n + 4) .mosaic-tab__wr{
                 margin-left: -300%;
             }
+
+            > .mosaic-tab__wr {
+                pointer-events: all;
+            }
+        }
+
+        &.active .for-passive,
+        &:not(.active) .for-active {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        &.active .for-passive {
+           left: 100%;
         }
 
         .mosaic-tab__wr {
-            overflow: hidden;
             position: absolute;
-            top: var(--padding-mosaic-offset);
-            left: var(--padding-mosaic-offset);
+            pointer-events: none;
+            
             height: calc(var(--height-mosaic-tab) - var(--padding-mosaic-offset));
             width: calc(100% - var(--padding-mosaic-offset));
             background: var(--color-background-white);
@@ -356,9 +361,128 @@ $search-v-padding: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
+
+
+            .mosaic-tab-wr__bd {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
         }
     }
+    .mosaic__pnl {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
 }
+
+.pnl {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 25px 35px 20px;
+    cursor: pointer;
+
+    font-size: 1rem;
+    line-height: 1.25rem;
+
+    transition: opacity .4s ease, left .4s ease;
+
+    + .pnl {
+        margin-top: 13px;    
+    }
+
+    .pnl__hf,
+    .pnl__h {
+        font-weight: 500;
+        font-size: 1.375rem;
+        line-height: 1.025em;
+
+        color: var(--color-text-blue);
+    }
+    .pnl__h {
+        max-width: 235px;
+    }
+    .pnl__hf {
+        width: 100%;
+        display: flex;
+        padding-bottom: 17px;
+        white-space: nowrap;
+        border-bottom: 2px solid var(--color-background-gray);
+    }
+    .pnl__cls {
+        margin-left: auto;
+    }
+
+    .pnl__f {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+
+        span + span {
+            margin-left: 10px;
+        }
+    }
+
+    .pnl__ul {
+        position:  relative;
+
+        display: flex;
+        flex-flow: column wrap;
+        list-style: none;
+
+        margin-top: 30px;
+        max-height: calc(100% - 56px);
+
+        .pnl-ul__li {
+            max-width: 50%;
+            margin-bottom: 25px;
+        }
+        &::after {
+            position: static;
+            display: block;
+            content: '';
+
+            margin-top: auto;
+        }
+    }
+
+    a:hover {
+        opacity: .5;
+    }
+
+    &.pnl_srch {
+        max-height: 309px;
+        background: var(--color-background-white);
+
+        .pnl__ul {
+            height: 200px;
+        }
+    }
+
+    &.pnl_girl {
+        background: url(../img/svg/mosaic/mosaic-girl.svg) no-repeat;
+        background-position: 230px center;
+    }
+    &.pnl_brn {
+        background: url(../img/svg/mosaic/mosaic-brain.svg) no-repeat;
+        background-position: 230px center;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 .map {
     position: absolute;

@@ -111,8 +111,8 @@ a.link:hover > span::after {
   --color-background-white:  white;
   --color-background-space:  #E8E8E8;
   --width-addr: 435px;
-  --height-mosaic-tab-active: 200px;
-  --height-mosaic-tab: 100px;
+  --height-mosaic-tab-active: 500px;
+  --height-mosaic-tab: 180px;
   --padding-mosaic-offset: 13px;
 }
 
@@ -138,6 +138,11 @@ sup {
 .size-b {
   width: 30px;
   height: 30px;
+}
+
+.size-d {
+  width: 32px;
+  height: 32px;
 }
 
 .size-c {
@@ -640,5 +645,25 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
           justify-content: center;
   background: url(../img/svg/arrow-up.svg) no-repeat;
   background-position: 50% 0px;
+}
+
+.p404 .p404__txt {
+  margin-top: 24px;
+  font-weight: normal;
+}
+
+.p404 .p404__btn {
+  margin-top: 64px;
+  width: 220px;
+  height: 64px;
+}
+
+.b404 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../img/png/404.png) right center no-repeat;
 }
 /*# sourceMappingURL=base.css.map */

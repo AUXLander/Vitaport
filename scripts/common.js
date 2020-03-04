@@ -98,12 +98,36 @@ var WindowResizeEvent = function () {
         document.body.querySelector('style').innerHTML = ":root{--width-addr:" + rect.width + "px}";
     });
 };
-var MosaicTabInitEvent = function (tab, index, all) {
+var MosaicTabInitEvent = function (tab) {
     tab.addEventListener('click', function (e) {
-        var curr = e.currentTarget;
-        curr.classList.toggle('active');
+        var close = e.target.classList.contains('pnl__cls');
+        if (e.currentTarget == e.target || close) {
+            var target = e.currentTarget;
+            if (close) {
+                isOpenedMosaic = false;
+                target.classList.remove('active');
+            }
+            else {
+                if (isOpenedMosaic) {
+                    var mosaic = target.parentElement;
+                    var actives = mosaic.querySelectorAll('.mosaic__tab.active');
+                    actives.forEach(function (tab) {
+                        tab.style.zIndex = '0';
+                        tab.style.opacity = '.5';
+                        setTimeout(function (tab) {
+                            tab.style.cssText = null;
+                            tab.classList.remove('active');
+                        }, 330, tab);
+                    });
+                    isOpenedMosaic = !isOpenedMosaic;
+                }
+                isOpenedMosaic = true;
+                target.classList.add('active');
+            }
+        }
     });
 };
+var isOpenedMosaic = false;
 window.onload = function () {
     document.body.appendChild(document.createElement('style'));
     if (window.innerWidth <= 768) {

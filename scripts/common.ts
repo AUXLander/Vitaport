@@ -124,13 +124,39 @@ const WindowResizeEvent = () => {
 }
 
 
-const MosaicTabInitEvent = (tab : HTMLElement, index : number, all : NodeListOf<HTMLElement>) => {
+const MosaicTabInitEvent = (tab : HTMLElement) => {
     tab.addEventListener('click', (e : MouseEvent) => {
-        const curr : HTMLElement = (<HTMLElement>e.currentTarget);
-        curr.classList.toggle('active');
+        const close : boolean = (e.target as HTMLElement).classList.contains('pnl__cls');
+        if(e.currentTarget == e.target || close) {
+            const target : HTMLElement = (<HTMLElement>e.currentTarget);
+            
+            if(close) {
+                isOpenedMosaic = false;
+                target.classList.remove('active');
+            }
+            else {
+                if(isOpenedMosaic) {
+                    const mosaic : HTMLElement = target.parentElement;
+                    const actives: NodeListOf<HTMLElement> = mosaic.querySelectorAll('.mosaic__tab.active');
+                    actives.forEach((tab: HTMLElement) => {
+                        tab.style.zIndex  = '0';
+                        tab.style.opacity = '.5';
+                        setTimeout((tab) => {
+                            tab.style.cssText = null;
+                            tab.classList.remove('active');
+                        }, 330, tab)
+                    });
+                    isOpenedMosaic = !isOpenedMosaic;
+                }
+    
+                isOpenedMosaic = true;
+                target.classList.add('active');
+            }
+        }
     });
-} 
+}
 
+var isOpenedMosaic = false;
 window.onload = () => {
 
     document.body.appendChild(document.createElement('style'));
@@ -167,5 +193,7 @@ window.onload = () => {
     document.querySelectorAll('.mosaic__tab').forEach(MosaicTabInitEvent);
 
     //ArrowUpInit()
+    
+
     
 };
