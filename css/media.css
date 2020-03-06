@@ -221,6 +221,34 @@
     width: auto;
     height: 50px;
   }
+  .mosaic .mosaic__tab {
+    width: 33%;
+    max-width: 33%;
+  }
+  .mosaic .mosaic__tab.active .mosaic-tab__wr {
+    width: calc(300% - var(--padding-mosaic-offset));
+  }
+  .mosaic .mosaic__tab.active:nth-child(4n + 2) .mosaic-tab__wr {
+    margin-left: 0%;
+  }
+  .mosaic .mosaic__tab.active:nth-child(4n + 3) .mosaic-tab__wr {
+    margin-left: 0%;
+  }
+  .mosaic .mosaic__tab.active:nth-child(4n + 4) .mosaic-tab__wr {
+    margin-left: 0%;
+  }
+  .mosaic .mosaic__tab.active:nth-child(3n + 2) .mosaic-tab__wr {
+    margin-left: -100%;
+  }
+  .mosaic .mosaic__tab.active:nth-child(3n + 3) .mosaic-tab__wr {
+    margin-left: -200%;
+  }
+  .pnl {
+    font-size: 1.2rem;
+  }
+  .pnl .pnl__h {
+    font-size: 1.675rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -315,6 +343,18 @@
   }
   .inside-wrapper {
     max-width: calc(100% - 80px);
+  }
+  .pnl .pnl__h {
+    max-width: 100%;
+    width: 100%;
+  }
+  .pnl.pnl_brn,
+  .pnl.pnl_girl {
+    background-position: calc(100% + 72px) center;
+    background-size: 50%;
+  }
+  .pnl {
+    padding: 20px 25px 15px;
   }
 }
 
@@ -446,6 +486,40 @@
   .artcl .artcl__tlt {
     font-size: 1.9em;
   }
+  .mosaic .mosaic__tab {
+    width: 50%;
+    max-width: 50%;
+  }
+  .mosaic .mosaic__tab.active .mosaic-tab__wr {
+    width: calc(200% - var(--padding-mosaic-offset));
+  }
+  .mosaic .mosaic__tab.active:nth-child(3n + 2) .mosaic-tab__wr {
+    margin-left: 0%;
+  }
+  .mosaic .mosaic__tab.active:nth-child(3n + 3) .mosaic-tab__wr {
+    margin-left: 0%;
+  }
+  .mosaic .mosaic__tab.active:nth-child(2n + 2) .mosaic-tab__wr {
+    margin-left: -100%;
+  }
+  .pnl {
+    font-size: 1.4rem;
+  }
+  .pnl .pnl__hf {
+    padding-bottom: 10px;
+  }
+  .pnl.pnl_brn,
+  .pnl.pnl_girl {
+    background-position: calc(100% + 55px) center;
+    background-size: 36%;
+  }
+  .pnl + .pnl {
+    margin-top: 0;
+  }
+  :root {
+    --height-mosaic-tab-active: 420px;
+    --height-mosaic-tab: 200px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -482,6 +556,16 @@
     line-height: 20px;
     margin-left: 0;
     margin-top: 9px;
+  }
+  .mosaic .mosaic__tab {
+    width: 100%;
+    max-width: 100%;
+  }
+  .mosaic .mosaic__tab.active .mosaic-tab__wr {
+    width: calc(100% - var(--padding-mosaic-offset));
+  }
+  .mosaic .mosaic__tab.active:nth-child(2n + 2) .mosaic-tab__wr {
+    margin-left: 0%;
   }
 }
 

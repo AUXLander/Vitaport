@@ -346,6 +346,10 @@ $search-v-padding: 15px;
             pointer-events: none !important;
         }
 
+        &:not(.active) .for-active .pnl__ul {
+            display: none !important;
+        }
+
         &.active .for-passive {
            left: 100%;
         }
@@ -380,8 +384,20 @@ $search-v-padding: 15px;
     }
 }
 
+@keyframes pnl-open {
+    0% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .pnl {
-    
+    user-select: none;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -391,10 +407,10 @@ $search-v-padding: 15px;
     font-size: 1rem;
     line-height: 1.25rem;
 
-    transition: opacity .4s ease, left .4s ease;
+    transition: opacity .4s ease, left .2s ease;
 
     + .pnl {
-        margin-top: 13px;    
+        margin-top: 13px;
     }
 
     .pnl__hf,
@@ -407,6 +423,7 @@ $search-v-padding: 15px;
     }
     .pnl__h {
         max-width: 235px;
+        width: 78%;
     }
     .pnl__hf {
         width: 100%;
@@ -431,6 +448,10 @@ $search-v-padding: 15px;
 
     .pnl__ul {
         position:  relative;
+        opacity: 1;
+
+        animation-name: pnl-open;
+        animation-duration: .5s;
 
         display: flex;
         flex-flow: column wrap;
@@ -438,6 +459,8 @@ $search-v-padding: 15px;
 
         margin-top: 30px;
         max-height: calc(100% - 56px);
+
+        transition: opacity 1s ease;
 
         .pnl-ul__li {
             max-width: 50%;
@@ -467,12 +490,14 @@ $search-v-padding: 15px;
 
     &.pnl_girl {
         background: url(../img/svg/mosaic/mosaic-girl.svg) no-repeat;
-        background-position: 230px center;
+        background-position: calc(100% - 25px) center;
+        background-size: 30%;
     }
     &.pnl_brn {
         background: url(../img/svg/mosaic/mosaic-brain.svg) no-repeat;
-        background-position: 230px center;
-    }
+        background-position: calc(100% - 25px) center;
+        background-size: 30%;
+    }   
 }
 
 
