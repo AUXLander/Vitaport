@@ -849,6 +849,7 @@ $search-v-padding: 15px;
     justify-content: space-between;
 
     span { 
+        pointer-events: none;
         width: 25px;
         height: 2px;
         background: var(--color-text-main);

@@ -113,7 +113,13 @@ const MobileMenuInitEvent = (menu : HTMLElement) => {
         if(menu) {
             menu.classList.toggle('active');
         }
-    })
+    });
+    document.body.addEventListener('click', (e: MouseEvent) => {
+        console.log(e.target, (<HTMLElement>e.target).parentElement.contains(menu))
+        if(!(<HTMLElement>e.target).parentElement.contains(menu) || (<HTMLElement>e.target) == document.body) {
+            menu.classList.remove('active');
+        }
+    });
 }
 
 const WindowResizeEvent = () => {
@@ -122,7 +128,6 @@ const WindowResizeEvent = () => {
         document.body.querySelector('style').innerHTML = `:root{--width-addr:${rect.width}px}`;
     });
 }
-
 
 const MosaicTabInitEvent = (tab : HTMLElement) => {
     tab.addEventListener('click', (e : MouseEvent) => {

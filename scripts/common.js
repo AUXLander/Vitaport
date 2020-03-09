@@ -91,6 +91,12 @@ var MobileMenuInitEvent = function (menu) {
             menu.classList.toggle('active');
         }
     });
+    document.body.addEventListener('click', function (e) {
+        console.log(e.target, e.target.parentElement.contains(menu));
+        if (!e.target.parentElement.contains(menu) || e.target == document.body) {
+            menu.classList.remove('active');
+        }
+    });
 };
 var WindowResizeEvent = function () {
     document.querySelectorAll('.addr').forEach(function (addr) {
