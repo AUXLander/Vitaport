@@ -1,76 +1,25 @@
-class Book {
-    top;
-    left;
-    width;
-    height;
-    mouseX;
-    mouseY;
-    mousePX;
-    mousePY;
-    MouseLeaveDelay;
-
-    parent      : HTMLDivElement;
-    background  : HTMLDivElement;
-
-    constructor(element : HTMLDivElement) {
-        let rect        : DOMRect   = element.getBoundingClientRect();
-        this.parent                 = element;
-        this.background             = element.querySelector('.bk__svg')
-
-        this.top                    = rect.top;
-        this.left                   = rect.left;
-        this.width                  = rect.width;
-        this.height                 = rect.height
-
-        element.addEventListener('mouseenter',  () => {
-            clearTimeout(this.MouseLeaveDelay);
-        });
-
-        element.addEventListener('mousemove',   (e : MouseEvent) => {
-            this.mouseX = e.pageX - this.left - this.width / 2;
-            this.mouseY = e.pageY - this.top - this.height / 2;
-            this.stateChanged(this);
-        });
-
-        element.addEventListener('mouseleave',  () => {
-            clearTimeout(this.MouseLeaveDelay);
-            this.MouseLeaveDelay = setTimeout((book : Book) => {
-                book.mouseX = 0;
-                book.mouseY = 0;
-                book.stateChanged(this);
-            }, 1000, this);
-        });
-    }
-
-    stateChanged(book : Book) {
-        book.mousePX = book.mouseX / book.width;
-        book.mousePY = book.mouseY / book.height;
-
-        book.parent.style.transform     = `rotateY(${book.mousePX * 30}deg) rotateX(${book.mousePY * -30}deg)`;
-        book.background.style.transform = `translateX(${book.mousePX * -40}px) translateY(${book.mousePY * -40}px)`;
-    }
-};
-
-//var b = new Book(document.querySelector('.bk'));
-
 const SearchInitEvent = (search : HTMLElement) => {
-    search.addEventListener('click', (e : MouseEvent) => {
+    search.addEventListener("click", (e : MouseEvent) => {
         let parent : HTMLElement = (e.currentTarget as any);
-        if(parent.hasAttribute('data-search-target')) {
-            const id : string = parent.getAttribute('data-search-target') + '';
+        if(parent.hasAttribute("data-search-target")) {
+            const id : string = parent.getAttribute("data-search-target") + "";
             if(id != "null") {
                 parent = document.querySelector(`#${id}`);
-                if(!parent) return;
+                if(!parent) {
+                    return;
+                }
             }
-            else return;    
+            else {
+                return;
+            }
         }
         else {
-            while(!parent.hasAttribute('search-area')){
+            while(!parent.hasAttribute("search-area")){
                 parent = parent.parentNode as HTMLElement;
             }
         }
         
-        parent.querySelectorAll('input[name="search"]').forEach((input : HTMLInputElement) => {
+        parent.querySelectorAll("input[name=search]").forEach((input : HTMLInputElement) => {
             input.focus();
         });
     })
@@ -78,18 +27,19 @@ const SearchInitEvent = (search : HTMLElement) => {
 
 var GOUpButton : HTMLButtonElement;
 const ArrowUpInit = () => {
-    if(Math.abs(window.outerHeight - document.documentElement.offsetHeight) > 300) {
-        GOUpButton = document.createElement('button');
-        GOUpButton.classList.add('goup', 'btn');
+    let windowInnerOffset = window.outerHeight - document.documentElement.offsetHeight;
+    if(Math.abs(windowInnerOffset) > 300) {
+        GOUpButton = document.createElement("button");
+        GOUpButton.classList.add("goup", "btn");
 
-        const span : HTMLSpanElement = document.createElement('span');
-        span.innerText = 'Вверх';
+        const span : HTMLSpanElement = document.createElement("span");
+        span.innerText = "Вверх";
 
         GOUpButton.appendChild(span);
-        GOUpButton.addEventListener('click', () => {
+        GOUpButton.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: "smooth"
             });
         });
 
@@ -98,64 +48,71 @@ const ArrowUpInit = () => {
 }
 
 const AddrInitEvent = (addr : HTMLElement) => {
-    const turns = addr.querySelectorAll('.addr__l_bgr > *');
+    const turns = addr.querySelectorAll(".addr__l_bgr > *");
     turns.forEach((turn : HTMLElement) => {
-        turn.addEventListener('click', () => {
-            addr.classList.toggle('pos-1');
-            addr.classList.toggle('pos-2');
+        turn.addEventListener("click", () => {
+            addr.classList.toggle("pos-1");
+            addr.classList.toggle("pos-2");
         });
     });
 }
 
 const MobileMenuInitEvent = (menu : HTMLElement) => {
-    menu.addEventListener('click', (e : MouseEvent) => {
+    menu.addEventListener("click", (e : MouseEvent) => {
         const menu : HTMLElement = <HTMLElement>e.currentTarget;
         if(menu) {
-            menu.classList.toggle('active');
+            menu.classList.toggle("active");
         }
     });
-    document.body.addEventListener('click', (e: MouseEvent) => {
-        console.log(e.target, (<HTMLElement>e.target).parentElement.contains(menu))
-        if(!(<HTMLElement>e.target).parentElement.contains(menu) || (<HTMLElement>e.target) == document.body) {
-            menu.classList.remove('active');
+    document.body.addEventListener("click", (e: MouseEvent) => {
+        let target  : HTMLElement | null  = e.target as HTMLElement;
+        if(target) {
+            let isBody  : boolean = (target == document.body);
+            let isChild : boolean = target.parentElement.contains(menu);
+            if(!isChild || isBody) {
+                menu.classList.remove("active");
+            }
         }
     });
 }
 
 const WindowResizeEvent = () => {
-    document.querySelectorAll('.addr').forEach((addr : HTMLElement) => {
-        const rect : DOMRect = addr.getBoundingClientRect();
-        document.body.querySelector('style').innerHTML = `:root{--width-addr:${rect.width}px}`;
+    document.querySelectorAll(".addr").forEach((addr : HTMLElement) => {
+        let style  : HTMLStyleElement = document.body.querySelector("style");
+        if(style) {
+            const rect : DOMRect = addr.getBoundingClientRect();
+            style.innerHTML = `:root{--width-addr:${rect.width}px}`;
+        }
     });
 }
 
 const MosaicTabInitEvent = (tab : HTMLElement) => {
-    tab.addEventListener('click', (e : MouseEvent) => {
-        const close : boolean = (e.target as HTMLElement).classList.contains('pnl__cls');
+    tab.addEventListener("click", (e : MouseEvent) => {
+        const close : boolean = (e.target as HTMLElement).classList.contains("pnl__cls");
         if(e.currentTarget == e.target || close) {
             const target : HTMLElement = (<HTMLElement>e.currentTarget);
             
             if(close) {
                 isOpenedMosaic = false;
-                target.classList.remove('active');
+                target.classList.remove("active");
             }
             else {
                 if(isOpenedMosaic) {
                     const mosaic : HTMLElement = target.parentElement;
-                    const actives: NodeListOf<HTMLElement> = mosaic.querySelectorAll('.mosaic__tab.active');
+                    const actives: NodeListOf<HTMLElement> = mosaic.querySelectorAll(".mosaic__tab.active");
                     actives.forEach((tab: HTMLElement) => {
-                        tab.style.zIndex  = '0';
-                        tab.style.opacity = '.5';
+                        tab.style.zIndex  = "0";
+                        tab.style.opacity = ".5";
                         setTimeout((tab) => {
                             tab.style.cssText = null;
-                            tab.classList.remove('active');
+                            tab.classList.remove("active");
                         }, 350, tab)
                     });
                     isOpenedMosaic = !isOpenedMosaic;
                 }
     
                 isOpenedMosaic = true;
-                target.classList.add('active');
+                target.classList.add("active");
             }
         }
     });
@@ -164,15 +121,15 @@ const MosaicTabInitEvent = (tab : HTMLElement) => {
 var isOpenedMosaic = false;
 window.onload = () => {
 
-    document.body.appendChild(document.createElement('style'));
+    document.body.appendChild(document.createElement("style"));
     
     if(window.innerWidth <= 768) {
         window.onresize = WindowResizeEvent;
         WindowResizeEvent();
     }
 
-    var mySwiper = new Swiper ('.swiper-container', {
-        direction         : 'horizontal',
+    var mySwiper = new Swiper (".swiper-container", {
+        direction         : "horizontal",
         speed             : 300,
         loop              : true,
         uniqueNavElements : true,
@@ -182,8 +139,8 @@ window.onload = () => {
         },
 
         pagination: {
-            el: '.swiper-bullets',
-            type: 'bullets',
+            el: ".swiper-bullets",
+            type: "bullets",
             clickable: true,
             renderBullet: (index, className) => {
                 return `<span class="${className}"></span>`;
@@ -192,10 +149,10 @@ window.onload = () => {
     });
 
 
-    document.querySelectorAll('.search-target').forEach(SearchInitEvent);
-    document.querySelectorAll('.addr.pos-1, .addr.pos-2').forEach(AddrInitEvent);
-    document.querySelectorAll('.brgr-menu').forEach(MobileMenuInitEvent);
-    document.querySelectorAll('.mosaic__tab').forEach(MosaicTabInitEvent);
+    document.querySelectorAll(".search-target").forEach(SearchInitEvent);
+    document.querySelectorAll(".addr.pos-1, .addr.pos-2").forEach(AddrInitEvent);
+    document.querySelectorAll(".brgr-menu").forEach(MobileMenuInitEvent);
+    document.querySelectorAll(".mosaic__tab").forEach(MosaicTabInitEvent);
 
     //ArrowUpInit()
     

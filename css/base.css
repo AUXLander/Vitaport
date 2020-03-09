@@ -101,17 +101,17 @@ a.link:hover > span::after {
 }
 
 :root {
-  --color-text-main:         #0B0A0A;
-  --color-text-blue:         #00A7E1;
-  --color-text-white:        white;
-  --color-text-bardo:        #F32735;
-  --color-text-air:          #BCBEC0;
-  --color-background-gray:   #F5F5F5;
-  --color-background-blue:   #00A7E1;
-  --color-background-lblue:  #F4FBFF;
-  --color-background-lbardo: #FEF4F5;
-  --color-background-white:  white;
-  --color-background-space:  #E8E8E8;
+  --color-text-main:         rgb(11, 10, 10);
+  --color-text-blue:         rgb(0, 168, 224);
+  --color-text-white:        rgb(255, 255, 255);
+  --color-text-bardo:        rgb(243, 39, 53);
+  --color-text-air:          rgb(188, 190, 192);
+  --color-background-gray:   rgb(245, 245, 245);
+  --color-background-blue:   rgb(0, 167, 225);
+  --color-background-lblue:  rgb(244, 251, 255);
+  --color-background-lbardo: rgb(254, 244, 245);
+  --color-background-white:  rgb(255, 255, 255);
+  --color-background-space:  rgb(232, 232, 232);
   --width-addr: 435px;
   --height-mosaic-tab-active: 500px;
   --height-mosaic-tab: 180px;
