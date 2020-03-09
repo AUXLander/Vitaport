@@ -121,9 +121,11 @@ a.link:hover > span::after {
 }
 
 body {
-  background: var(--color-background-gray);
+  position: relative;
   min-height: 100vh;
   padding-top: 100px;
+  padding-bottom: 127px;
+  background: var(--color-background-gray);
 }
 
 sup {
@@ -341,6 +343,9 @@ header {
 }
 
 footer {
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
   height: 127px;
 }
 
@@ -370,7 +375,6 @@ footer {
   font-weight: 500;
   font-size: 1.25rem;
   line-height: 24px;
-  position: relative;
   color: var(--color-text-main);
 }
 
@@ -427,6 +431,8 @@ footer {
           align-items: center;
   -webkit-transform: translateX(-33px);
           transform: translateX(-33px);
+  position: relative;
+  z-index: 10;
 }
 
 .scheme .scheme__nav {
@@ -440,6 +446,35 @@ footer {
   color: var(--color-text-air);
   margin-left: 40px;
   margin-bottom: 6px;
+}
+
+.scheme:not(footer) {
+  position: relative;
+}
+
+.scheme .scheme__mobmenu {
+  z-index: 10;
+}
+
+.scheme .scheme__mobmenu.active + .scheme__moblist {
+  opacity: 1;
+  pointer-events: all;
+  max-height: 300px;
+}
+
+.scheme .scheme__moblist {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: white;
+  z-index: 8;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  -webkit-transition: opacity .3s ease, .2s ease;
+  transition: opacity .3s ease, .2s ease;
 }
 
 ul.nav {
@@ -496,6 +531,8 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   text-transform: uppercase;
   color: var(--color-text-main);
   text-decoration: none;
+  position: relative;
+  z-index: 10;
 }
 
 .logo .logo__txt {
@@ -647,6 +684,11 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   background-position: 50% 0px;
 }
 
+.p404 {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+}
+
 .p404 .p404__txt {
   margin-top: 24px;
   font-weight: normal;
@@ -665,5 +707,6 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   right: 0;
   bottom: 0;
   background: url(../img/png/404.png) right center no-repeat;
+  z-index: -1;
 }
 /*# sourceMappingURL=base.css.map */

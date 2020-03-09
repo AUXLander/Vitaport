@@ -117,7 +117,7 @@ var MosaicTabInitEvent = function (tab) {
                         setTimeout(function (tab) {
                             tab.style.cssText = null;
                             tab.classList.remove('active');
-                        }, 330, tab);
+                        }, 350, tab);
                     });
                     isOpenedMosaic = !isOpenedMosaic;
                 }
