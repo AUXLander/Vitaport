@@ -163,11 +163,18 @@ $search-v-padding: 15px;
     font-weight: 500;
 
     transition: .2s ease;
+
+    color: var(--color-text-main);
+    
+    transition: color .2s ease;
+
     .bk__btn {
         font-family: 'PF Din Display Pro';
         font-weight: 500;
         font-size: 20px;
         margin-top: 17px;
+        color: var(--color-text-main);
+
     }
     .bk__pan {
         position: absolute;
@@ -184,12 +191,18 @@ $search-v-padding: 15px;
 
         display: flex;
         flex-direction: column;
+
+        color: inherit;
     }
 
     .bk__svg {
         position: absolute;
         right: 0;
         bottom: 0;
+
+        transition: transform .2s ease;
+
+        transform: scale(.8) translateX(42px) translateY(30px);
     }
 
     .bk__cat {
@@ -198,11 +211,12 @@ $search-v-padding: 15px;
 
         text-transform: uppercase;
 
-        color: var(--color-text-main);
+        color: inherit;
     }
 
     .bk__tlt {
         margin-top: 8px;
+        color: inherit;
     }
 
     .bk__cnt {
@@ -220,6 +234,9 @@ $search-v-padding: 15px;
         bottom: 0;
         
         background: var(--color-background-white);
+
+        color: inherit !important;
+        opacity: 1 !important;
     }
 
     &.bk_pills .bk__pan { 
@@ -232,8 +249,14 @@ $search-v-padding: 15px;
         background-position: calc(100% - 30px) calc(100% - 30px);
         background-size: 38%;
     }
+    &.bk_blue:hover {
+        color: var(--color-text-blue);
+    }
     &.bk_blue .bk__cnt {
         color: var(--color-text-blue);
+    }
+    &.bk_bardo:hover {
+        color: var(--color-text-bardo);
     }
     &.bk_bardo .bk__cnt {
         color: var(--color-text-bardo);
@@ -249,13 +272,24 @@ $search-v-padding: 15px;
         right: 0;
 
         background: #2B4149;
-        opacity: 0.34;
+        opacity: 0;
         filter: blur(45px);
 
         border-radius: 100%;
         z-index: -1;
 
         pointer-events: none;
+
+        transition: opacity .2s ease;
+    }
+    &:hover {
+        &::after {
+            opacity: 0.34;
+        }
+
+        .bk__svg {
+            transform: scale(1) translateX(0) translateY(0);
+        }
     }
 }
 
@@ -299,6 +333,8 @@ $search-v-padding: 15px;
     display: flex;
     flex-flow: row wrap;
     margin: calc(-1 * var(--padding-mosaic-offset));
+    
+    margin-bottom: 0;
 
 
     .mosaic__tab {
@@ -326,12 +362,15 @@ $search-v-padding: 15px;
 
             padding-bottom: var(--height-mosaic-tab);
             height: auto;
-            max-height: 500px;
+            max-height: 650px;
 
-            .mosaic-tab__wr {
+            > .mosaic-tab__wr:hover,
+            > .mosaic-tab__wr {
                 //height: calc(var(--height-mosaic-tab-active) - var(--height-mosaic-tab) - var(--padding-mosaic-offset));
                 //width: calc(400% - var(--padding-mosaic-offset));
-                width: calc(400% + calc( 2 * var(--padding-mosaic-offset)))
+                width: calc(400% + calc( 2 * var(--padding-mosaic-offset)));
+                -moz-box-shadow: 0px 21px 45px -29px rgba(0,0,0,0);
+                box-shadow: 0px 21px 45px -29px rgba(0,0,0,0);
             }
 
             &:nth-child(4n + 2) .mosaic-tab__wr {
@@ -345,8 +384,13 @@ $search-v-padding: 15px;
             }
 
             > .mosaic-tab__wr {
-                pointer-events: all;
-            }
+                -moz-box-shadow: 0px 21px 45px -29px rgba(0,0,0,0.25);
+                box-shadow: 0px 21px 45px -29px rgba(0,0,0,0.25);
+                
+                .mosaic-tab-wr__bd {
+                    pointer-events: all;
+                }
+            } 
         }
 
         &.active .for-passive,
@@ -369,11 +413,11 @@ $search-v-padding: 15px;
         }
 
         .mosaic-tab__wr {
-            //position: absolute;
-            pointer-events: none;
+            position: relative;
+            cursor: pointer;
             
             //height: calc(var(--height-mosaic-tab) - var(--padding-mosaic-offset));
-            width: calc(100% - var(--padding-mosaic-offset));
+            width: calc(100% - 0 * var(--padding-mosaic-offset));
             background: var(--color-background-white);
             transition: .4s;
             display: flex;
@@ -384,8 +428,18 @@ $search-v-padding: 15px;
             height: auto;
             position: static;
 
+            &:hover {
+                -moz-box-shadow: 0px 21px 45px -29px rgba(0,0,0,0.25);
+                box-shadow: 0px 21px 45px -29px rgba(0,0,0,0.25);
+
+                .for-passive {
+                    color: var(--color-text-main);
+                }
+            }
+
 
             .mosaic-tab-wr__bd {
+                pointer-events: none;
                 width: 100%;
                 //height: 100%;
                 position: relative;
@@ -393,6 +447,8 @@ $search-v-padding: 15px;
 
                 //
                 height: auto;
+
+                z-index: 2;
             }
         }
     }
@@ -423,6 +479,7 @@ $search-v-padding: 15px;
 }
 
 .pnl {
+    color: var(--color-text-blue);
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -444,8 +501,7 @@ $search-v-padding: 15px;
         font-weight: 500;
         font-size: 1.375rem;
         line-height: 1.025em;
-
-        color: var(--color-text-blue);
+        color: inherit;
     }
     .pnl__h {
         max-width: 235px;
@@ -674,10 +730,13 @@ $search-v-padding: 15px;
 
 .fullfill {
     padding: 28px 20px;
+    font-size: 1.3em;
+    line-height: 1em;
 
-    font-weight: 500;
-    font-size: 1.5em;
-    line-height: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
     .fullfill__wr {
         width: 100%;
@@ -686,6 +745,18 @@ $search-v-padding: 15px;
         display: flex;
         justify-content: center;
         text-align: center;
+
+        
+        font-weight: 500;
+        font-size: 1.16em;
+        line-height: 1.2em;
+    }
+
+    > p + p {
+        margin-top: 20px;
+    }
+    > p:empty {
+        display: none;
     }
 
     &.fullfill_blue {
@@ -701,6 +772,8 @@ $search-v-padding: 15px;
 
 .artcl {
     font-size: 17px;
+    line-height: 1.4em;
+
     font-weight: 300;
     text-align: left;
     margin: 0 0 15px;
@@ -884,6 +957,10 @@ $search-v-padding: 15px;
             }
         }
     }
+}
+
+.vec-image-background {
+    position: absolute;
 }
 
 

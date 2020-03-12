@@ -27,6 +27,48 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-Italic.ttf.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-Bold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato/Lato-LightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
 input {
   outline: 0;
   border: 0;
@@ -113,8 +155,8 @@ a.link:hover > span::after {
   --color-background-white:  rgb(255, 255, 255);
   --color-background-space:  rgb(232, 232, 232);
   --width-addr: 435px;
-  --height-mosaic-tab-active: 500px;
-  --height-mosaic-tab: 180px;
+  --height-mosaic-tab-active: 650px;
+  --height-mosaic-tab: 193px;
   --padding-mosaic-offset: 13px;
 }
 
@@ -264,7 +306,7 @@ sup {
 }
 
 .swiper-slide {
-  background: palevioletred;
+  background: transparent;
 }
 
 .slide {
@@ -327,19 +369,22 @@ sup {
 }
 
 header, footer {
+  max-width: 100vw;
   width: 100%;
   width: 100%;
   background: var(--color-background-white);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 10;
 }
 
 header {
-  height: 100px;
-  position: fixed !important;
-  z-index: 100;
   top: 0;
+  position: fixed !important;
+  top: 0;
+  height: 100px;
+  z-index: 100;
   -webkit-box-shadow: 0px 4px 26px rgba(96, 96, 96, 0.03);
           box-shadow: 0px 4px 26px rgba(96, 96, 96, 0.03);
 }

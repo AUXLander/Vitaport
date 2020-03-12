@@ -80,7 +80,7 @@ var WindowResizeEvent = function () {
 var MosaicTabInitEvent = function (tab) {
     tab.addEventListener("click", function (e) {
         var close = e.target.classList.contains("pnl__cls");
-        if (e.currentTarget == e.target || close) {
+        if (e.currentTarget == e.target || e.currentTarget == e.target.parentElement || close) {
             var target = e.currentTarget;
             if (close) {
                 isOpenedMosaic = false;
@@ -106,6 +106,25 @@ var MosaicTabInitEvent = function (tab) {
         }
     });
 };
+var FigureInit = function () {
+    var vec = [document.createElement('img'), document.createElement('img'), document.createElement('img')];
+    var footer = document.body.getElementsByTagName('footer')[0];
+    vec.forEach(function (vec, index) {
+        vec.classList.add('vec-image-background');
+        vec.src = "img/svg/vec-" + (index + 1).toFixed() + ".svg";
+        vec.alt = "#";
+        vec.style.zIndex = "-1";
+        document.body.appendChild(vec);
+    });
+    var bodyRect = document.body.getBoundingClientRect();
+    var footerRect = footer.getBoundingClientRect();
+    vec[0].style.top = ((bodyRect.height - 400) / 2).toFixed() + "px";
+    vec[0].style.left = "0";
+    vec[1].style.top = ((bodyRect.height - 600) / 2).toFixed() + "px";
+    vec[1].style.right = "0";
+    vec[2].style.top = (bodyRect.height - footerRect.height - 276).toFixed() + "px";
+    vec[2].style.right = "0";
+};
 var isOpenedMosaic = false;
 window.onload = function () {
     document.body.appendChild(document.createElement("style"));
@@ -126,7 +145,8 @@ window.onload = function () {
             type: "bullets",
             clickable: true,
             renderBullet: function (index, className) {
-                return "<span class=\"" + className + "\"></span>";
+                return "<svg class=\"progress " + className + "\"><circle r=\"50\" cx=\"150\" cy=\"80\"/></svg>";
+                //return `<span class=""></span>`;
             }
         }
     });
@@ -135,4 +155,5 @@ window.onload = function () {
     document.querySelectorAll(".brgr-menu").forEach(MobileMenuInitEvent);
     document.querySelectorAll(".mosaic__tab").forEach(MosaicTabInitEvent);
     //ArrowUpInit()
+    FigureInit();
 };

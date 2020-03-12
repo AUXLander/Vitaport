@@ -566,8 +566,7 @@
     --height-mosaic-tab: 150px;
   }
   footer.scheme {
-    position: static;
-    height: initial;
+    height: 143px;
   }
   footer.scheme .scheme__wrapper {
     display: -webkit-box;
@@ -601,7 +600,7 @@
     margin-top: 9px;
   }
   body {
-    padding-bottom: 0;
+    padding-bottom: 143px;
   }
   .mosaic .mosaic__tab {
     width: 100%;
@@ -623,7 +622,7 @@
     width: 100% !important;
   }
   .pnl {
-    padding: 20px 20px 15px;
+    padding: 15px 32px 15px;
   }
   .pnl .pnl__hf {
     white-space: normal;
@@ -640,7 +639,8 @@
     margin: 0 auto;
   }
   .pnl .pnl__cls {
-    margin-top: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
     width: 20px;
     height: 20px;
   }
@@ -700,6 +700,9 @@
     width: 13px;
     right: -10px;
   }
+  .artcl {
+    font-family: 'Lato', sans-serif;
+  }
 }
 
 @media (max-width: 520px) {
@@ -719,10 +722,17 @@
   }
   .artcl {
     font-size: 14px;
+    line-height: 1.6em;
   }
   .artcl ul.artcl__list li {
     line-height: 1.3em;
     margin-bottom: 15px;
+  }
+  .artcl ul.artcl__list li span {
+    margin-left: 20px;
+  }
+  .artcl ul.artcl__list li::before {
+    top: 7px;
   }
   .artcl .artcl__subdesc {
     font-size: 0.85em;

@@ -89,7 +89,7 @@ const WindowResizeEvent = () => {
 const MosaicTabInitEvent = (tab : HTMLElement) => {
     tab.addEventListener("click", (e : MouseEvent) => {
         const close : boolean = (e.target as HTMLElement).classList.contains("pnl__cls");
-        if(e.currentTarget == e.target || close) {
+        if(e.currentTarget == e.target || e.currentTarget == (<HTMLElement>e.target).parentElement || close) {
             const target : HTMLElement = (<HTMLElement>e.currentTarget);
             
             if(close) {
@@ -118,6 +118,32 @@ const MosaicTabInitEvent = (tab : HTMLElement) => {
     });
 }
 
+const FigureInit = () => {
+    const vec     : HTMLImageElement[] = [document.createElement('img'),document.createElement('img'),document.createElement('img')];
+    const footer  : HTMLElement        = document.body.getElementsByTagName('footer')[0];
+
+    vec.forEach((vec : HTMLImageElement, index : number) => {
+        vec.classList.add('vec-image-background');
+        vec.src = "img/svg/vec-" + (index + 1).toFixed() + ".svg";
+        vec.alt = "#";
+        vec.style.zIndex = "-1";
+
+        document.body.appendChild(vec);
+    });
+
+    const bodyRect   : DOMRect      = document.body.getBoundingClientRect();
+    const footerRect : DOMRect      = footer.getBoundingClientRect();
+
+    vec[0].style.top = ((bodyRect.height - 400) / 2).toFixed() + "px";
+    vec[0].style.left = "0";
+
+    vec[1].style.top = ((bodyRect.height - 600) / 2).toFixed() + "px";
+    vec[1].style.right = "0";
+
+    vec[2].style.top = (bodyRect.height - footerRect.height - 276).toFixed() + "px";
+    vec[2].style.right = "0";
+}
+
 var isOpenedMosaic = false;
 window.onload = () => {
 
@@ -143,7 +169,8 @@ window.onload = () => {
             type: "bullets",
             clickable: true,
             renderBullet: (index, className) => {
-                return `<span class="${className}"></span>`;
+                return `<svg class="progress ${className}"><circle r="50" cx="150" cy="80"/></svg>`
+                //return `<span class=""></span>`;
             },
         }
     });
@@ -155,7 +182,7 @@ window.onload = () => {
     document.querySelectorAll(".mosaic__tab").forEach(MosaicTabInitEvent);
 
     //ArrowUpInit()
-    
+    FigureInit();
 
     
 };
