@@ -155,7 +155,11 @@ a.link:hover > span::after {
   --color-background-white:  rgb(255, 255, 255);
   --color-background-space:  rgb(232, 232, 232);
   --width-addr: 435px;
+<<<<<<< HEAD
+  --height-mosaic-tab-active: 500px;
+=======
   --height-mosaic-tab-active: 650px;
+>>>>>>> 74a966420fcf15ef15f666285b7d1ce0358407d2
   --height-mosaic-tab: 193px;
   --padding-mosaic-offset: 13px;
 }
