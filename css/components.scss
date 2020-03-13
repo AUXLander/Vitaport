@@ -326,7 +326,7 @@ $search-v-padding: 15px;
 
             padding-bottom: var(--height-mosaic-tab);
             height: auto;
-            max-height: 500px;
+            max-height: 600px;
 
             .mosaic-tab__wr {
                 //height: calc(var(--height-mosaic-tab-active) - var(--height-mosaic-tab) - var(--padding-mosaic-offset));
@@ -373,7 +373,7 @@ $search-v-padding: 15px;
             pointer-events: none;
             
             //height: calc(var(--height-mosaic-tab) - var(--padding-mosaic-offset));
-            width: calc(100% - var(--padding-mosaic-offset));
+            width: 100%;
             background: var(--color-background-white);
             transition: .4s;
             display: flex;

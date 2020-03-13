@@ -114,7 +114,7 @@ a.link:hover > span::after {
   --color-background-space:  rgb(232, 232, 232);
   --width-addr: 435px;
   --height-mosaic-tab-active: 500px;
-  --height-mosaic-tab: 180px;
+  --height-mosaic-tab: 193px;
   --padding-mosaic-offset: 13px;
 }
 
@@ -1183,7 +1183,7 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   z-index: 10;
   padding-bottom: var(--height-mosaic-tab);
   height: auto;
-  max-height: 500px;
+  max-height: 600px;
 }
 
 .mosaic .mosaic__tab.active .mosaic-tab__wr {
@@ -1227,7 +1227,7 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
 
 .mosaic .mosaic__tab .mosaic-tab__wr {
   pointer-events: none;
-  width: calc(100% - var(--padding-mosaic-offset));
+  width: 100%;
   background: var(--color-background-white);
   -webkit-transition: .4s;
   transition: .4s;
