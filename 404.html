@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components.min.css">
 </head>
-<body>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
     <header class="scheme">
         <div class="scheme__wrapper main-wrapper">
             <div class="scheme__grh">
@@ -59,17 +60,17 @@
         <div class="skltn__bn"></div>
         <div class="skltn__bn">
             <div class="p404">
-                <h4 class="p404__tlt tlt">
+                <h4 class="p404__tlt tlt" data-aos="fade-up">
                     <span style="color:var(--color-text-blue)">Извините,</span><br>
                     страница не найдена
                 </h4>
-                <p class="p404__txt txt">Воспользуйтесь поиском или перейдите на главную страницу</p>
-                <a class="p404__btn btn btn_blue" href="#"><span>Главная</span></a>
+                <p class="p404__txt txt" data-aos="fade-up">Воспользуйтесь поиском или перейдите на главную страницу</p>
+                <a class="p404__btn btn btn_blue" href="#" data-aos="fade-up"><span>Главная</span></a>
             </div>
         </div>
         <div class="skltn__bn"></div>
 
-        <div class="skltn__bn">
+        <div class="skltn__bn" data-aos="fade-up">
             <form id="searchline" class="skltn__srch search" action="" method="get" search-area>
                 <div class="search__ic search-target">
                     <span class="size-a i i_srch_bl"></span>
@@ -107,5 +108,6 @@
 
 </body>
 </html>
+<script src="scripts/aos.js"></script>
 <script src="scripts/swiper.min.js"></script>
 <script src="scripts/common.js"></script>

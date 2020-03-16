@@ -267,9 +267,9 @@ sup {
     justify-content: center;
     align-items: center;
 
-    width: 8px;
-    height: 8px;
-    background: white;
+    width: 20px;
+    height: 20px;
+    background: transparent;
     position: relative;
     border-radius: 100%;
 
@@ -713,4 +713,31 @@ ul.nav {
 
     z-index: -1;
 
+}
+
+@-webkit-keyframes anim {
+    0% {
+        stroke-dashoffset: 60;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes anim {
+    0% {
+        stroke-dashoffset: 60;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+.progress {
+    stroke-dasharray: 			62;
+    stroke-dashoffset: 			62;
+}
+.swiper-pagination-bullet-active .progress {
+    animation-name: 			anim;
+    animation-duration: 		3s;
+    animation-timing-function: 	linear;
+    animation-iteration-count: 	infinite;
 }

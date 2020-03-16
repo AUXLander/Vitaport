@@ -144,6 +144,11 @@ const FigureInit = () => {
     vec[2].style.right = "0";
 }
 
+AOS.init({
+    startEvent: 'DOMContentLoaded',
+    once: true
+});
+
 var isOpenedMosaic = false;
 window.onload = () => {
 
@@ -161,7 +166,7 @@ window.onload = () => {
         uniqueNavElements : true,
 
         autoplay: {
-            delay: 5000,
+            delay: 2800,
         },
 
         pagination: {
@@ -169,7 +174,12 @@ window.onload = () => {
             type: "bullets",
             clickable: true,
             renderBullet: (index, className) => {
-                return `<svg class="progress ${className}"><circle r="50" cx="150" cy="80"/></svg>`
+                //return `<img class="${className}" src="img/svg/progress.svg"/>`
+                return `
+                    <svg class="${className}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 22 22" width="22px" height="22px">
+                        <circle class="progress" vector-effect="non-scaling-stroke" cx="11" cy="11" r="10" fill="none" stroke-width="2" stroke="#FFF" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+                        <circle vector-effect="non-scaling-stroke" cx="11" cy="11" r="4" fill="#FFF"/>
+                    </svg>`;
                 //return `<span class=""></span>`;
             },
         }

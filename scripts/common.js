@@ -125,6 +125,10 @@ var FigureInit = function () {
     vec[2].style.top = (bodyRect.height - footerRect.height - 276).toFixed() + "px";
     vec[2].style.right = "0";
 };
+AOS.init({
+    startEvent: 'DOMContentLoaded',
+    once: true
+});
 var isOpenedMosaic = false;
 window.onload = function () {
     document.body.appendChild(document.createElement("style"));
@@ -138,14 +142,15 @@ window.onload = function () {
         loop: true,
         uniqueNavElements: true,
         autoplay: {
-            delay: 5000
+            delay: 2800
         },
         pagination: {
             el: ".swiper-bullets",
             type: "bullets",
             clickable: true,
             renderBullet: function (index, className) {
-                return "<svg class=\"progress " + className + "\"><circle r=\"50\" cx=\"150\" cy=\"80\"/></svg>";
+                //return `<img class="${className}" src="img/svg/progress.svg"/>`
+                return "\n                    <svg class=\"" + className + "\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" style=\"isolation:isolate\" viewBox=\"0 0 22 22\" width=\"22px\" height=\"22px\">\n                        <circle class=\"progress\" vector-effect=\"non-scaling-stroke\" cx=\"11\" cy=\"11\" r=\"10\" fill=\"none\" stroke-width=\"2\" stroke=\"#FFF\" stroke-linejoin=\"miter\" stroke-linecap=\"square\" stroke-miterlimit=\"3\"/>\n                        <circle vector-effect=\"non-scaling-stroke\" cx=\"11\" cy=\"11\" r=\"4\" fill=\"#FFF\"/>\n                    </svg>";
                 //return `<span class=""></span>`;
             }
         }

@@ -273,9 +273,9 @@ sup {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 8px;
-  height: 8px;
-  background: white;
+  width: 20px;
+  height: 20px;
+  background: transparent;
   position: relative;
   border-radius: 100%;
 }
@@ -767,5 +767,39 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   bottom: 0;
   background: url(../img/png/404.png) right center no-repeat;
   z-index: -1;
+}
+
+@-webkit-keyframes anim {
+  0% {
+    stroke-dashoffset: 60;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes anim {
+  0% {
+    stroke-dashoffset: 60;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.progress {
+  stroke-dasharray: 62;
+  stroke-dashoffset: 62;
+}
+
+.swiper-pagination-bullet-active .progress {
+  -webkit-animation-name: anim;
+          animation-name: anim;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 /*# sourceMappingURL=base.css.map */

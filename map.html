@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components.min.css">
 </head>
-<body>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
     <header class="scheme">
         <div class="scheme__wrapper main-wrapper">
             <div class="scheme__grh">
@@ -63,7 +64,7 @@
                             <img src="img/svg/WTF.svg" alt="#">
                         </div>
                     </a>
-                    <div class="map-info__bn compact">
+                    <div class="map-info__bn compact" data-aos="fade-up">
                         <div class="map-info__field field-tlt">
                             <span>Телефон:</span>
                             <a href="tel:+7(495)780-72-34">+7 (495) 780-72-34</a>
@@ -74,7 +75,7 @@
                         </div>
                     </div>
                     <hr class="map-info__hr"/>
-                    <div class="map-info__bn addr pos-1">
+                    <div class="map-info__bn addr pos-1" data-aos="fade-up">
                         <div class="addr__l addr__l_bgr">
                             <div class="addr-l__lbl" onclick="toggleAddress()"><span>Московский офис</span></div>
                             <div class="addr-l__lbl" onclick="toggleAddress()"><span>Производство</span></div>
@@ -86,8 +87,8 @@
                             </div>
                         </div>
                     </div>
-                    <p class="map-info__bn map-info__office txt">Россия, 123317, Москва, Пресненская набережная, д. 8, стр. 1,<br><br> МФК «Город Столиц», Северный блок, башня «Москва».</p>
-                    <p class="map-info__bn map-info__factory bhidden txt">Россия, 601125, Владимирская обл., Петушинский р-н, пос. Вольгинский, ул. Заводская, стр. 107</p>
+                    <p class="map-info__bn map-info__office txt" data-aos="fade-up">Россия, 123317, Москва, Пресненская набережная, д. 8, стр. 1,<br><br> МФК «Город Столиц», Северный блок, башня «Москва».</p>
+                    <p class="map-info__bn map-info__factory bhidden txt" data-aos="fade-up">Россия, 601125, Владимирская обл., Петушинский р-н, пос. Вольгинский, ул. Заводская, стр. 107</p>
                 </div>
                 <div class="map-container__map">
                     <div id="map" class="map"></div>
@@ -120,6 +121,7 @@
 </body>
 </html>
 
+<script src="scripts/aos.js"></script>
 <script src="scripts/swiper.min.js"></script>
 <script src="scripts/common.js"></script>
 <script>
