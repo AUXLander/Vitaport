@@ -167,7 +167,7 @@ const MobileHeaderEvent = () => {
 }
 
 const MobileHeaderInit = () => {
-    if(window.innerWidth < 550 && !!documentHeader) {
+    if(window.innerWidth < 768 && !!documentHeader) {
         document.addEventListener('scroll', MobileHeaderEvent)
     }
 }

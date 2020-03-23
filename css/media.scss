@@ -924,9 +924,15 @@
         width: 66px;
         right: 20px !important;
     }
+    .swiper {
+        padding-bottom: 420px;
+    }
 }
 
 @media (max-width: 375px) {
+    .skltn {
+        overflow: hidden;
+    }
     .addr {
         height: 40px;
         margin: 20px auto 0;
@@ -942,5 +948,9 @@
 
     .logo .logo__txt { 
         display: none;
+    }
+    .swiper {
+        width: calc(100% + 20px);
+        max-width: calc(100% + 20px) !important;
     }
 }

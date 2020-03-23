@@ -144,7 +144,7 @@ var MobileHeaderEvent = function () {
     previousDocumentScrollValue = document.documentElement.scrollTop;
 };
 var MobileHeaderInit = function () {
-    if (window.innerWidth < 550 && !!documentHeader) {
+    if (window.innerWidth < 768 && !!documentHeader) {
         document.addEventListener('scroll', MobileHeaderEvent);
     }
 };
