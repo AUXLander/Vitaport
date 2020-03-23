@@ -68,7 +68,11 @@
 .artcl h4 {
   font-weight: 500;
   font-size: 1.3em;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.artcl p + h4 {
+  margin-top: 35px;
 }
 
 .artcl hr {
@@ -163,7 +167,7 @@
   margin-top: 25px;
 }
 
-.artcl .artcl__tbl {
+.artcl table {
   margin-top: 15px;
 }
 

@@ -140,6 +140,9 @@
     .bk .bk__btn{
         font-size: 16px;
     }
+    .bk .bk__tlt {
+        letter-spacing: 0;
+    }
 
 
     .skltn {
@@ -914,6 +917,12 @@
         margin: 34px auto 0;
         width: 100%;
         height: 40px;
+    }
+
+
+    .goup {
+        width: 66px;
+        right: 20px !important;
     }
 }
 

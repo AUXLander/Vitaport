@@ -125,6 +125,9 @@
   .bk .bk__btn {
     font-size: 16px;
   }
+  .bk .bk__tlt {
+    letter-spacing: 0;
+  }
   .skltn {
     padding-bottom: 60px;
   }
@@ -261,22 +264,6 @@
 @media (max-width: 1024px) {
   .main-wrapper {
     max-width: calc(100% - 80px);
-  }
-  .artcl .artcl__scrll {
-    margin: 0 -40px;
-    overflow-x: scroll;
-    padding-left: 40px;
-  }
-  .artcl .artcl__scrll .tbl {
-    position: relative;
-  }
-  .artcl .artcl__scrll .tbl::after {
-    content: "";
-    display: block;
-    position: absolute;
-    right: -40px;
-    width: 40px;
-    height: 1px;
   }
   .swiper {
     padding-bottom: 350px;
@@ -498,9 +485,6 @@
     -o-object-position: 50%;
        object-position: 50%;
   }
-  .artcl .artcl__tlt {
-    font-size: 1.9em;
-  }
   .mosaic .mosaic__tab {
     width: calc(50% - var(--padding-mosaic-offset)/2);
     max-width: 50%;
@@ -700,9 +684,6 @@
     width: 13px;
     right: -10px;
   }
-  .artcl {
-    font-family: 'Lato', sans-serif;
-  }
 }
 
 @media (max-width: 520px) {
@@ -711,32 +692,6 @@
   }
   .inside-wrapper {
     max-width: calc(100% - 40px);
-  }
-  .artcl .artcl__scrll {
-    margin: 0 -20px;
-    padding-left: 20px;
-  }
-  .artcl .artcl__scrll .tbl::after {
-    right: -20px;
-    width: 20px;
-  }
-  .artcl {
-    font-size: 14px;
-    line-height: 1.6em;
-  }
-  .artcl ul.artcl__list li {
-    line-height: 1.3em;
-    margin-bottom: 15px;
-  }
-  .artcl ul.artcl__list li span {
-    margin-left: 20px;
-  }
-  .artcl ul.artcl__list li::before {
-    top: 7px;
-  }
-  .artcl .artcl__subdesc {
-    font-size: 0.85em;
-    line-height: 1.1em;
   }
   .map-info__bn.logo {
     height: 33px;
@@ -844,6 +799,10 @@
     margin: 34px auto 0;
     width: 100%;
     height: 40px;
+  }
+  .goup {
+    width: 66px;
+    right: 20px !important;
   }
 }
 

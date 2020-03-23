@@ -36,6 +36,7 @@ const ArrowUpInit = () => {
         span.innerText = "Вверх";
 
         GOUpButton.appendChild(span);
+
         GOUpButton.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
@@ -44,7 +45,16 @@ const ArrowUpInit = () => {
         });
 
         document.body.appendChild(GOUpButton);
+        ArrowDocumentScrollEvent();
+        GOUpButton.style.opacity = "0";
     }
+
+    document.addEventListener('scroll', ArrowDocumentScrollEvent)
+}
+
+const ArrowDocumentScrollEvent = () => {
+    GOUpButton.style.transform = document.documentElement.scrollTop > 300 ? "translateY(0)" : "translateY(-50vh)";
+    GOUpButton.style.opacity = document.documentElement.scrollTop > 300 ? "1" : "0";
 }
 
 const AddrInitEvent = (addr : HTMLElement) => {
@@ -106,7 +116,7 @@ const MosaicTabInitEvent = (tab : HTMLElement) => {
                         setTimeout((tab) => {
                             tab.style.cssText = null;
                             tab.classList.remove("active");
-                        }, 350, tab)
+                        }, 550, tab)
                     });
                     isOpenedMosaic = !isOpenedMosaic;
                 }
@@ -144,6 +154,40 @@ const FigureInit = () => {
     vec[2].style.right = "0";
 }
 
+var documentHeader : HTMLElement;
+var previousDocumentScrollValue : number = 0;
+var previousDocumentScrollState : boolean = false;
+const MobileHeaderEvent = () => {
+    let currentDocumentScrollState = previousDocumentScrollValue > document.documentElement.scrollTop;
+    if(currentDocumentScrollState != previousDocumentScrollState) {
+        previousDocumentScrollState = currentDocumentScrollState;
+        documentHeader.style.transform = previousDocumentScrollState ? "translateY(0)" : "translateY(-100%)";
+    }
+    previousDocumentScrollValue = document.documentElement.scrollTop;
+}
+
+const MobileHeaderInit = () => {
+    if(window.innerWidth < 550 && !!documentHeader) {
+        document.addEventListener('scroll', MobileHeaderEvent)
+    }
+}
+
+const ArticleParser = () => {
+    if(document.querySelectorAll('article.artcl').length) {
+        ArrowUpInit();
+
+        document.querySelectorAll('table').forEach((table : HTMLTableElement) => {
+            let wrap : HTMLDivElement = document.createElement('div');
+            wrap.classList.add('artcl__scrll');
+            wrap.appendChild(table.cloneNode(true));
+    
+            table.parentElement.replaceChild(wrap, table);
+        });
+    
+        document.querySelectorAll('article .inside-wrapper > *').forEach(element => element.setAttribute('data-aos','fade-up'));
+    }
+}
+
 AOS.init({
     startEvent: 'DOMContentLoaded',
     once: true
@@ -151,7 +195,7 @@ AOS.init({
 
 var isOpenedMosaic = false;
 window.onload = () => {
-
+    documentHeader = document.querySelector('header');
     document.body.appendChild(document.createElement("style"));
     
     if(window.innerWidth <= 768) {
@@ -191,8 +235,7 @@ window.onload = () => {
     document.querySelectorAll(".brgr-menu").forEach(MobileMenuInitEvent);
     document.querySelectorAll(".mosaic__tab").forEach(MosaicTabInitEvent);
 
-    //ArrowUpInit()
     FigureInit();
-
-    
+    ArticleParser();
+    MobileHeaderInit();
 };

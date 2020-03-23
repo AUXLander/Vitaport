@@ -1,32 +1,16 @@
-.tbl {
-    min-width: 870px;
+.tbl, 
+.artcl table {
     width: 100%;
-
+    min-width: 870px;
     font-style: normal;
     font-weight: 300;
     font-size: 14px;
     line-height: 1.4em;
-
     text-align: center;
-
     color: var(--color-text-main);
 
-    .tbl__hrd {
-        background-color: #f4fbff;
-
-        &.tbl__hrd_saturat {
-            background: #e8f4fb;
-        }
-    }
-
-    .tbl__txt-l {
-        text-align: left !important;
-    }
-    .tbl__txt-t {
-        vertical-align: top;
-        padding-top: 26px;
-    }
-    .tbl__txt-b {
+    b,
+    strong {
         font-weight: 500;
     }
 
@@ -35,30 +19,44 @@
         text-align: center;
         padding: 16px 20px 14px;
         vertical-align: middle;
+        max-width: 190px;
     
-        span {
+        i {
             display: inline-block;
             min-width: 60px;
             font-size: .875em;
+            font-style: normal;
             line-height: 1.4em;  
             color: var(--color-text-air);
             vertical-align: text-bottom;
         }
-    }
 
-    &:not(.tbl_setoffset) {
-        tr:nth-child(2n + 1) > td {
-            background-color: #f4fbff;
+        &:first-child {
+            text-align: left !important;
         }
     }
-
-    &.tbl_setoffset {
-        tr:nth-child(2n + 6) > td {
-            background-color: #f4fbff;
-        }
+    
+    th {
+        background-color: #f4fbff;
     }
 
-    &.tbl_textleft {
-        text-align: left;
+    thead {
+        tr {
+            background-color: #f4fbff;
+        }
+
+        td {
+            &[rowspan="4"],
+            &[rowspan="5"],
+            &[rowspan="6"],
+            &[rowspan="7"] {
+                vertical-align: top;
+                padding-top: 26px;
+            }
+        }
+    }
+    
+    tbody tr:nth-child(2n) {
+        background-color: #f4fbff;
     }
 }

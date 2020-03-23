@@ -39,7 +39,14 @@ var ArrowUpInit = function () {
             });
         });
         document.body.appendChild(GOUpButton);
+        ArrowDocumentScrollEvent();
+        GOUpButton.style.opacity = "0";
     }
+    document.addEventListener('scroll', ArrowDocumentScrollEvent);
+};
+var ArrowDocumentScrollEvent = function () {
+    GOUpButton.style.transform = document.documentElement.scrollTop > 300 ? "translateY(0)" : "translateY(-50vh)";
+    GOUpButton.style.opacity = document.documentElement.scrollTop > 300 ? "1" : "0";
 };
 var AddrInitEvent = function (addr) {
     var turns = addr.querySelectorAll(".addr__l_bgr > *");
@@ -96,7 +103,7 @@ var MosaicTabInitEvent = function (tab) {
                         setTimeout(function (tab) {
                             tab.style.cssText = null;
                             tab.classList.remove("active");
-                        }, 350, tab);
+                        }, 550, tab);
                     });
                     isOpenedMosaic = !isOpenedMosaic;
                 }
@@ -125,12 +132,41 @@ var FigureInit = function () {
     vec[2].style.top = (bodyRect.height - footerRect.height - 276).toFixed() + "px";
     vec[2].style.right = "0";
 };
+var documentHeader;
+var previousDocumentScrollValue = 0;
+var previousDocumentScrollState = false;
+var MobileHeaderEvent = function () {
+    var currentDocumentScrollState = previousDocumentScrollValue > document.documentElement.scrollTop;
+    if (currentDocumentScrollState != previousDocumentScrollState) {
+        previousDocumentScrollState = currentDocumentScrollState;
+        documentHeader.style.transform = previousDocumentScrollState ? "translateY(0)" : "translateY(-100%)";
+    }
+    previousDocumentScrollValue = document.documentElement.scrollTop;
+};
+var MobileHeaderInit = function () {
+    if (window.innerWidth < 550 && !!documentHeader) {
+        document.addEventListener('scroll', MobileHeaderEvent);
+    }
+};
+var ArticleParser = function () {
+    if (document.querySelectorAll('article.artcl').length) {
+        ArrowUpInit();
+        document.querySelectorAll('table').forEach(function (table) {
+            var wrap = document.createElement('div');
+            wrap.classList.add('artcl__scrll');
+            wrap.appendChild(table.cloneNode(true));
+            table.parentElement.replaceChild(wrap, table);
+        });
+        document.querySelectorAll('article .inside-wrapper > *').forEach(function (element) { return element.setAttribute('data-aos', 'fade-up'); });
+    }
+};
 AOS.init({
     startEvent: 'DOMContentLoaded',
     once: true
 });
 var isOpenedMosaic = false;
 window.onload = function () {
+    documentHeader = document.querySelector('header');
     document.body.appendChild(document.createElement("style"));
     if (window.innerWidth <= 768) {
         window.onresize = WindowResizeEvent;
@@ -159,6 +195,7 @@ window.onload = function () {
     document.querySelectorAll(".addr.pos-1, .addr.pos-2").forEach(AddrInitEvent);
     document.querySelectorAll(".brgr-menu").forEach(MobileMenuInitEvent);
     document.querySelectorAll(".mosaic__tab").forEach(MosaicTabInitEvent);
-    //ArrowUpInit()
     FigureInit();
+    ArticleParser();
+    MobileHeaderInit();
 };
