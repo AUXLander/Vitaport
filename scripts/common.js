@@ -119,6 +119,9 @@ var MosaicTabInitEvent = function (tab) {
     });
 };
 var FigureInit = function () {
+    if (document.body.classList.contains('page-404')) {
+        return;
+    }
     var vec = [document.createElement('img'), document.createElement('img'), document.createElement('img')];
     var footer = document.body.getElementsByTagName('footer')[0];
     vec.forEach(function (vec, index) {
@@ -140,6 +143,12 @@ var FigureInit = function () {
 var documentHeader;
 var previousDocumentScrollValue = 0;
 var previousDocumentScrollState = false;
+var HeaderPosition;
+(function (HeaderPosition) {
+    HeaderPosition["absolute"] = "absolute";
+    HeaderPosition["fixed"] = "fixed";
+})(HeaderPosition || (HeaderPosition = {}));
+var cssHeaderPosition = HeaderPosition.fixed;
 var MobileHeaderEvent = function () {
     var currentDocumentScrollState = previousDocumentScrollValue > document.documentElement.scrollTop;
     if (currentDocumentScrollState != previousDocumentScrollState) {
@@ -147,6 +156,15 @@ var MobileHeaderEvent = function () {
         documentHeader.style.transform = previousDocumentScrollState ? "translateY(0)" : "translateY(-100%)";
     }
     previousDocumentScrollValue = document.documentElement.scrollTop;
+    //iOS fix
+    if (document.documentElement.scrollTop == 0 && cssHeaderPosition == HeaderPosition.fixed) {
+        documentHeader.style.position = HeaderPosition.absolute;
+        cssHeaderPosition = HeaderPosition.absolute;
+    }
+    else if (document.documentElement.scrollTop > 0 && cssHeaderPosition == HeaderPosition.absolute) {
+        documentHeader.style.position = HeaderPosition.fixed;
+        cssHeaderPosition = HeaderPosition.fixed;
+    }
 };
 var MobileHeaderInit = function () {
     if (window.innerWidth < 768 && !!documentHeader) {
@@ -167,7 +185,10 @@ var ArticleParser = function () {
 };
 AOS.init({
     startEvent: 'DOMContentLoaded',
-    once: true
+    once: true,
+    disable: function () {
+        return window.innerWidth < 520;
+    }
 });
 var isOpenedMosaic = false;
 window.onload = function () {

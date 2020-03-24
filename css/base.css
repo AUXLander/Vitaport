@@ -385,7 +385,7 @@ header, footer {
 
 header {
   top: 0;
-  position: fixed !important;
+  position: fixed;
   top: 0;
   height: 100px;
   z-index: 100;
@@ -501,10 +501,6 @@ footer {
   color: var(--color-text-air);
   margin-left: 40px;
   margin-bottom: 6px;
-}
-
-.scheme:not(footer) {
-  position: relative;
 }
 
 .scheme .scheme__mobmenu {

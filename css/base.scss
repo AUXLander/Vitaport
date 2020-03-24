@@ -370,7 +370,7 @@ header, footer {
 
 header {
     top: 0;
-    position: fixed !important;
+    position: fixed;
     top: 0;
     height: 100px;
     z-index: 100;
@@ -464,11 +464,7 @@ footer {
 
         margin-bottom: 6px;
     }
-
-    &:not(footer) {
-        position: relative;
-    }
-
+    
     .scheme__mobmenu {
         z-index: 10;
     }

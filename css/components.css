@@ -385,7 +385,7 @@ header, footer {
 
 header {
   top: 0;
-  position: fixed !important;
+  position: fixed;
   top: 0;
   height: 100px;
   z-index: 100;
@@ -501,10 +501,6 @@ footer {
   color: var(--color-text-air);
   margin-left: 40px;
   margin-bottom: 6px;
-}
-
-.scheme:not(footer) {
-  position: relative;
 }
 
 .scheme .scheme__mobmenu {
@@ -2434,6 +2430,13 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   .pnl .pnl__h {
     font-size: 1.675rem;
   }
+  .page-404 .page-404__srch {
+    margin-top: 65px;
+  }
+  .b404 {
+    background-position: calc(100% + 130px) 40px;
+    background-size: 90%;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2532,6 +2535,10 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+  .b404 {
+    background-position: calc(100% + 130px) 100px;
+    background-size: 90%;
   }
 }
 
@@ -2714,12 +2721,18 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   }
   .p404 {
     font-size: 2rem;
-    text-align: center;
   }
   .p404 .p404__btn {
     margin: 64px auto 0;
     width: 190px;
     height: 50px;
+  }
+  .page-404 .page-404__srch {
+    margin-top: 245px;
+  }
+  .b404 {
+    background-position: center 70%;
+    background-size: 560px;
   }
 }
 
@@ -2862,6 +2875,13 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
     width: 13px;
     right: -10px;
   }
+  .b404 {
+    background-position: center 65%;
+    background-size: 560px;
+  }
+  .p404__tlt {
+    max-width: 190px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -2973,13 +2993,15 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
     right: -20px;
     width: calc(100% + 40px);
   }
-  .b404 {
-    display: none !important;
+  .page-404 .page-404__srch {
+    margin-top: 250px;
   }
   .p404 .p404__btn {
     margin: 34px auto 0;
-    width: 100%;
     height: 40px;
+  }
+  .p404__txt {
+    max-width: 300px;
   }
   .goup {
     width: 66px;
@@ -2991,9 +3013,6 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
 }
 
 @media (max-width: 375px) {
-  .skltn {
-    overflow: hidden;
-  }
   .addr {
     height: 40px;
     margin: 20px auto 0;
@@ -3003,14 +3022,15 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
     padding: 17.5px 11px;
   }
   .main-wrapper {
-    max-width: calc(100% - 20px);
+    max-width: calc(100% - 40px);
   }
   .logo .logo__txt {
     display: none;
   }
   .swiper {
-    width: calc(100% + 20px);
-    max-width: calc(100% + 20px) !important;
+    overflow: hidden;
+    width: calc(100% + 40px);
+    max-width: calc(100% + 40px) !important;
   }
 }
 /*# sourceMappingURL=components.css.map */

@@ -134,6 +134,12 @@ const MosaicTabInitEvent = (tab : HTMLElement) => {
 }
 
 const FigureInit = () => {
+
+    if(document.body.classList.contains('page-404')) {
+        return;
+    }
+
+
     const vec     : HTMLImageElement[] = [document.createElement('img'),document.createElement('img'),document.createElement('img')];
     const footer  : HTMLElement        = document.body.getElementsByTagName('footer')[0];
 
@@ -162,6 +168,12 @@ const FigureInit = () => {
 var documentHeader : HTMLElement;
 var previousDocumentScrollValue : number = 0;
 var previousDocumentScrollState : boolean = false;
+
+enum HeaderPosition {
+    absolute = "absolute",
+    fixed    = "fixed"
+}
+var cssHeaderPosition : HeaderPosition = HeaderPosition.fixed;
 const MobileHeaderEvent = () => {
     let currentDocumentScrollState = previousDocumentScrollValue > document.documentElement.scrollTop;
     if(currentDocumentScrollState != previousDocumentScrollState) {
@@ -169,6 +181,16 @@ const MobileHeaderEvent = () => {
         documentHeader.style.transform = previousDocumentScrollState ? "translateY(0)" : "translateY(-100%)";
     }
     previousDocumentScrollValue = document.documentElement.scrollTop;
+
+    //iOS fix
+    if(document.documentElement.scrollTop == 0 && cssHeaderPosition == HeaderPosition.fixed) {
+        documentHeader.style.position = HeaderPosition.absolute;
+        cssHeaderPosition = HeaderPosition.absolute;
+    }
+    else if(document.documentElement.scrollTop > 0 && cssHeaderPosition == HeaderPosition.absolute) {
+        documentHeader.style.position = HeaderPosition.fixed;
+        cssHeaderPosition = HeaderPosition.fixed;
+    }
 }
 
 const MobileHeaderInit = () => {
@@ -195,7 +217,10 @@ const ArticleParser = () => {
 
 AOS.init({
     startEvent: 'DOMContentLoaded',
-    once: true
+    once: true,
+    disable: () => {
+        return window.innerWidth < 520;
+    }
 });
 
 var isOpenedMosaic = false;
