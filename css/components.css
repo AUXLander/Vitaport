@@ -678,7 +678,7 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
 }
 
 .container {
-  padding: 60px 80px 100px;
+  padding: 54px 80px 125px;
 }
 
 .map-container {
@@ -720,6 +720,23 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   width: 100%;
   margin: 52px 0 0;
   border-top: 2px solid var(--color-background-gray);
+}
+
+.map-info .map-info__field {
+  width: 77%;
+}
+
+.map-info .map-info__field span {
+  top: 3px;
+}
+
+.map-info .map-info__field a {
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.map-info .map-info__field + .map-info__field {
+  margin-left: 65px;
 }
 
 .wrp {
@@ -2604,6 +2621,9 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   .map-info__field {
     font-size: 22px;
   }
+  .map-info .map-info__field + .map-info__field {
+    margin-left: 34px;
+  }
   .container {
     padding: 40px 40px 40px;
   }
@@ -2853,6 +2873,9 @@ ul.nav > li.active::after, ul.nav > li:hover::after {
   }
   .map-info__bn.logo {
     height: 33px;
+  }
+  .map-info .map-info__field + .map-info__field {
+    margin-left: 0;
   }
   .main-wrapper {
     max-width: calc(100% - 40px);

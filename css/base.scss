@@ -634,7 +634,7 @@ ul.nav {
 }
 
 .container {
-    padding: 60px 80px 100px;
+    padding: 54px 80px 125px;
 }
 .map-container {
     background: var(--color-background-white);
@@ -665,6 +665,23 @@ ul.nav {
         margin: 52px 0 0;
         border-top: 2px solid var(--color-background-gray);
     }
+
+    .map-info__field{
+        width: 77%;
+
+        span {
+            top: 3px;
+        }
+
+        a {
+            line-height: 36px;
+            white-space: nowrap;
+        }
+    }
+    .map-info__field + .map-info__field {
+        margin-left: 65px;
+    }
+
 }
 .wrp {
     max-width: 955px;

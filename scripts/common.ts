@@ -91,6 +91,11 @@ const WindowResizeEvent = () => {
         let style  : HTMLStyleElement = document.body.querySelector("style");
         if(style) {
             const rect : DOMRect = addr.getBoundingClientRect();
+            if(window.innerWidth < 477) {
+                // First rendering shows panel little bit shorter then it shold be
+                // I don't know why, sorry
+                rect.width += 12;
+            }
             style.innerHTML = `:root{--width-addr:${rect.width}px}`;
         }
     });

@@ -446,6 +446,9 @@
   .map-info__field {
     font-size: 22px;
   }
+  .map-info .map-info__field + .map-info__field {
+    margin-left: 34px;
+  }
   .container {
     padding: 40px 40px 40px;
   }
@@ -695,6 +698,9 @@
   }
   .map-info__bn.logo {
     height: 33px;
+  }
+  .map-info .map-info__field + .map-info__field {
+    margin-left: 0;
   }
   .main-wrapper {
     max-width: calc(100% - 40px);
